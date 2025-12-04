@@ -1,0 +1,2872 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آکادمی زبان نصیری | آموزش زبان انگلیسی و ترکی</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- SweetAlert2 for premium notifications -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <style>
+        :root {
+            --light: #100f0f;
+            --lightgray: #282726;
+            --gray: #9f9898;
+            --darkgray: #d6d3cb;
+            --dark: #cecdc3;
+            --secondary: #a68adf;
+            --tertiary: #846aff;
+            --success: #25D366;
+            --warning: #ff9800;
+            --highlight: #8b7ec826;
+            --textHighlight: #8b7ec826;
+            --gradient: linear-gradient(135deg, #a68adf 0%, #846aff 100%);
+            --gradient-secondary: linear-gradient(135deg, #846aff 0%, #a68adf 100%);
+            --gradient-light: linear-gradient(135deg, rgba(166, 138, 223, 0.1) 0%, rgba(132, 106, 255, 0.1) 100%);
+            --gradient-horizontal: linear-gradient(90deg, #a68adf 0%, #846aff 100%);
+            --shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            --shadow-lg: 0 30px 70px rgba(0, 0, 0, 0.8);
+            --shadow-xl: 0 40px 100px rgba(0, 0, 0, 0.9);
+            --border-radius: 24px;
+            --border-radius-sm: 16px;
+            --transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 120px;
+        }
+        
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            line-height: 1.9;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        ::selection {
+            background-color: var(--secondary);
+            color: var(--dark);
+        }
+        
+        /* Minimalist Preloader */
+        #preloader {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--light);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s, visibility 0.5s;
+            flex-direction: column;
+        }
+        
+        #preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        /* Minimalist Loading Animation */
+        .loader-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(166, 138, 223, 0.2);
+            border-radius: 50%;
+            border-top-color: var(--secondary);
+            animation: spin 1s linear infinite;
+        }
+        
+        .loading-text {
+            color: var(--dark);
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-top: 15px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Enhanced Avatar Styles */
+        .teacher-avatar-container {
+            position: relative;
+            display: inline-block;
+            width: 450px;
+            height: 450px;
+        }
+        
+        .teacher-avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+            border: 20px solid var(--lightgray);
+            box-shadow: var(--shadow-xl);
+            transition: var(--transition);
+            overflow: hidden;
+        }
+        
+        .teacher-avatar-icon {
+            font-size: 180px;
+            color: var(--dark);
+            transition: var(--transition);
+            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
+        }
+        
+        .teacher-avatar-glow {
+            position: absolute;
+            top: -30px;
+            right: -30px;
+            width: 510px;
+            height: 510px;
+            border-radius: 50%;
+            background: var(--gradient);
+            filter: blur(50px);
+            opacity: 0.6;
+            z-index: 1;
+            animation: pulse-glow 4s infinite alternate;
+        }
+        
+        .teacher-avatar:hover {
+            transform: scale(1.05);
+            border-color: rgba(166, 138, 223, 0.4);
+        }
+        
+        .teacher-avatar:hover .teacher-avatar-icon {
+            transform: scale(1.1);
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
+        }
+        
+        .teacher-avatar-overlay {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(45deg, rgba(166, 138, 223, 0.1), rgba(132, 106, 255, 0.1));
+            z-index: 3;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .teacher-avatar:hover .teacher-avatar-overlay {
+            opacity: 1;
+        }
+        
+        /* Avatar decoration elements */
+        .avatar-decoration {
+            position: absolute;
+            z-index: 4;
+            pointer-events: none;
+        }
+        
+        .decoration-1 {
+            top: 30px;
+            right: 30px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--gradient);
+            animation: float 6s infinite ease-in-out;
+        }
+        
+        .decoration-2 {
+            bottom: 50px;
+            left: 40px;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: var(--tertiary);
+            animation: float 5s infinite ease-in-out 0.5s;
+        }
+        
+        .decoration-3 {
+            top: 70px;
+            left: 30px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--secondary);
+            animation: float 7s infinite ease-in-out 1s;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+        
+        /* Premium Header & Navigation */
+        header {
+            background-color: rgba(16, 15, 15, 0.98);
+            backdrop-filter: blur(20px);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid rgba(166, 138, 223, 0.2);
+            transition: var(--transition);
+        }
+        
+        header.scrolled {
+            padding: 5px 0;
+            background-color: rgba(16, 15, 15, 0.99);
+            border-bottom: 2px solid rgba(166, 138, 223, 0.3);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 0;
+            transition: padding 0.5s;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            position: relative;
+        }
+        
+        .logo::after {
+            content: '';
+            position: absolute;
+            width: 5px;
+            height: 50px;
+            background: var(--gradient);
+            right: -20px;
+            border-radius: 5px;
+        }
+        
+        .logo-icon {
+            width: 75px;
+            height: 75px;
+            background: var(--gradient);
+            border-radius: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+            font-size: 2.5rem;
+            box-shadow: 0 15px 35px rgba(166, 138, 223, 0.5);
+            transition: var(--transition);
+        }
+        
+        .logo:hover .logo-icon {
+            transform: rotate(20deg) scale(1.15);
+            box-shadow: 0 20px 45px rgba(166, 138, 223, 0.7);
+        }
+        
+        .logo-text h1 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 2px 10px rgba(166, 138, 223, 0.3);
+        }
+        
+        .logo-text p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            font-weight: 300;
+            letter-spacing: 1.5px;
+            margin-top: 5px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 50px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--darkgray);
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: var(--transition);
+            padding: 10px 0;
+            position: relative;
+            letter-spacing: 0.5px;
+        }
+        
+        nav a:hover {
+            color: var(--secondary);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 4px;
+            bottom: 0;
+            right: 0;
+            background: var(--gradient);
+            transition: var(--transition);
+            border-radius: 10px;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        nav a.active {
+            color: var(--secondary);
+        }
+        
+        nav a.active::after {
+            width: 100%;
+        }
+        
+        .cta-button {
+            background: var(--gradient);
+            color: var(--dark);
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(166, 138, 223, 0.5);
+            margin-right: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(166, 138, 223, 0.7);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 2rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--dark);
+            background: var(--lightgray);
+            width: 65px;
+            height: 65px;
+            border-radius: 18px;
+            transition: var(--transition);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+        
+        .mobile-menu-btn:hover {
+            background: var(--secondary);
+            color: var(--dark);
+            transform: rotate(180deg);
+        }
+        
+        /* Premium Hero Section */
+        .hero {
+            background-color: var(--light);
+            padding: 240px 0 160px;
+            margin-top: 120px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-bg-pattern {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23a68adf' fill-opacity='0.4'%3E%3Cpath d='M60 60c0-13.255 10.745-24 24-24s24 10.745 24 24-10.745 24-24 24c0 13.255-10.745 24-24 24s-24-10.745-24-24 10.745-24 24-24zm-48-48c0-13.255 10.745-24 24-24s24 10.745 24 24-10.745 24-24 24c0 13.255-10.745 24-24 24S0 61.255 0 48s10.745-24 24-24zm24 16c8.837 0 16-7.163 16-16S80.837 0 72 0 56 7.163 56 16s7.163 16 16 16zm48 48c8.837 0 16-7.163 16-16s-7.163-16-16-16-16 7.163-16 16 7.163 16 16 16z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-text {
+            flex: 1;
+            max-width: 750px;
+        }
+        
+        .hero-text h2 {
+            font-size: 4rem;
+            margin-bottom: 35px;
+            line-height: 1.2;
+            color: var(--dark);
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+        
+        .hero-text h2 span {
+            color: var(--secondary);
+            background-color: var(--textHighlight);
+            padding: 0 12px;
+            border-radius: 12px;
+            position: relative;
+            display: inline-block;
+            transform: translateY(0);
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        .hero-text h2 span:nth-child(2) {
+            animation-delay: 0.7s;
+            color: var(--tertiary);
+        }
+        
+        .hero-text h2 span:nth-child(3) {
+            animation-delay: 1.4s;
+        }
+        
+        .hero-text p {
+            font-size: 1.5rem;
+            margin-bottom: 60px;
+            color: var(--gray);
+            font-weight: 300;
+            line-height: 2.1;
+            position: relative;
+            padding-right: 40px;
+        }
+        
+        .hero-text p::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 15px;
+            width: 4px;
+            height: 80%;
+            background: var(--gradient);
+            border-radius: 4px;
+        }
+        
+        .hero-image {
+            flex: 1;
+            max-width: 600px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .teacher-badge {
+            position: absolute;
+            bottom: 50px;
+            left: -30px;
+            background: var(--gradient);
+            color: var(--dark);
+            padding: 20px 40px;
+            border-radius: 60px;
+            font-weight: 900;
+            font-size: 1.4rem;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+            z-index: 5;
+            animation: badge-pulse 3s infinite;
+            border: 3px solid var(--tertiary);
+        }
+        
+        /* Premium Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            background: var(--gradient);
+            color: var(--dark);
+            padding: 25px 60px;
+            border-radius: 60px;
+            font-weight: 900;
+            font-size: 1.3rem;
+            text-decoration: none;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 20px 50px rgba(166, 138, 223, 0.5);
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 1px;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 100%);
+            transform: translateX(-100%);
+            transition: transform 1s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-10px) scale(1.08);
+            box-shadow: 0 25px 60px rgba(166, 138, 223, 0.7);
+        }
+        
+        .btn:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 4px solid var(--secondary);
+            color: var(--secondary);
+            box-shadow: none;
+        }
+        
+        .btn-outline:hover {
+            background-color: rgba(166, 138, 223, 0.15);
+            color: var(--secondary);
+            border-color: var(--tertiary);
+        }
+        
+        .btn-secondary {
+            background: var(--gradient-secondary);
+            color: var(--dark);
+            box-shadow: 0 20px 50px rgba(132, 106, 255, 0.4);
+        }
+        
+        .btn-secondary:hover {
+            box-shadow: 0 25px 60px rgba(132, 106, 255, 0.6);
+        }
+        
+        /* WhatsApp Button Style */
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+            box-shadow: 0 20px 50px rgba(37, 211, 102, 0.4);
+        }
+        
+        .btn-whatsapp:hover {
+            box-shadow: 0 25px 60px rgba(37, 211, 102, 0.6);
+            transform: translateY(-10px) scale(1.08);
+        }
+        
+        /* Premium Section Titles */
+        .section-title {
+            text-align: center;
+            margin-bottom: 120px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 3.5rem;
+            color: var(--dark);
+            margin-bottom: 30px;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::before, .section-title h2::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 150px;
+            height: 5px;
+            background: var(--gradient);
+            border-radius: 5px;
+        }
+        
+        .section-title h2::before {
+            left: -180px;
+        }
+        
+        .section-title h2::after {
+            right: -180px;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            font-size: 1.4rem;
+            max-width: 900px;
+            margin: 35px auto 0;
+            font-weight: 300;
+            line-height: 2.2;
+        }
+        
+        /* Stats Counter - Fixed with animation */
+        .stats-counter {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin: 80px auto;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+            background: var(--lightgray);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            min-width: 220px;
+            transition: var(--transition);
+            border: 2px solid rgba(166, 138, 223, 0.1);
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-15px);
+            border-color: rgba(166, 138, 223, 0.3);
+            box-shadow: var(--shadow);
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            margin-bottom: 15px;
+        }
+        
+        .stat-text {
+            color: var(--gray);
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+        
+        /* Premium Courses Section with 4 Cards */
+        .courses {
+            padding: 160px 0;
+            background-color: var(--light);
+            position: relative;
+        }
+        
+        .courses::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gradient);
+        }
+        
+        .courses-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 60px;
+        }
+        
+        .course-card {
+            background-color: var(--lightgray);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 2px solid rgba(166, 138, 223, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .course-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-light);
+            opacity: 0;
+            transition: opacity 0.6s;
+            z-index: -1;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-25px) scale(1.04);
+            box-shadow: var(--shadow-xl);
+            border-color: rgba(166, 138, 223, 0.4);
+        }
+        
+        .course-card:hover::before {
+            opacity: 1;
+        }
+        
+        .course-badge {
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            background: var(--gradient);
+            color: var(--dark);
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1rem;
+            z-index: 2;
+        }
+        
+        .course-header {
+            background: var(--gradient);
+            color: var(--dark);
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .course-header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.25) 100%);
+            transform: translateX(-100%);
+            transition: transform 1s;
+        }
+        
+        .course-card:hover .course-header::after {
+            transform: translateX(100%);
+        }
+        
+        .course-icon {
+            font-size: 4rem;
+            margin-bottom: 30px;
+        }
+        
+        .course-header h3 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 900;
+        }
+        
+        .course-content {
+            padding: 50px 45px;
+        }
+        
+        .course-content ul {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+        
+        .course-content li {
+            padding: 18px 0;
+            border-bottom: 2px solid rgba(166, 138, 223, 0.1);
+            position: relative;
+            padding-right: 45px;
+            color: var(--darkgray);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+        
+        .course-content li:hover {
+            color: var(--dark);
+            padding-right: 50px;
+            transform: translateX(-15px);
+        }
+        
+        .course-content li::before {
+            content: "✓";
+            position: absolute;
+            right: 0;
+            color: var(--secondary);
+            font-weight: bold;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .course-content li:hover::before {
+            transform: scale(1.5) rotate(15deg);
+        }
+        
+        .course-price {
+            text-align: center;
+            font-size: 2.8rem;
+            color: var(--dark);
+            font-weight: 900;
+            margin-bottom: 35px;
+            letter-spacing: -1px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Ottoman Turkish Special Card */
+        .course-card.ottoman .course-header {
+            background: var(--gradient-secondary);
+            color: var(--dark);
+        }
+        
+        .course-card.ottoman .course-content li::before {
+            color: var(--tertiary);
+        }
+        
+        /* Azerbaijani Turkish Special Card */
+        .course-card.azerbaijani .course-header {
+            background: var(--gradient-horizontal);
+            color: var(--dark);
+        }
+        
+        /* Premium Features Section */
+        .features {
+            padding: 140px 0;
+            background-color: var(--light);
+            position: relative;
+        }
+        
+        .features::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gradient);
+        }
+        
+        .features-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 60px;
+        }
+        
+        .feature-card {
+            background-color: var(--lightgray);
+            border-radius: var(--border-radius);
+            padding: 60px 50px;
+            text-align: center;
+            transition: var(--transition);
+            border: 2px solid rgba(166, 138, 223, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            opacity: 0;
+            transition: opacity 0.6s;
+            z-index: 0;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-20px);
+            box-shadow: var(--shadow-xl);
+            border-color: rgba(166, 138, 223, 0.4);
+        }
+        
+        .feature-card:hover::before {
+            opacity: 0.08;
+        }
+        
+        .feature-icon {
+            width: 100px;
+            height: 100px;
+            background: var(--gradient);
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 35px;
+            color: var(--dark);
+            font-size: 3rem;
+            box-shadow: 0 20px 40px rgba(166, 138, 223, 0.5);
+            transition: var(--transition);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: rotate(20deg) scale(1.2);
+            box-shadow: 0 25px 50px rgba(166, 138, 223, 0.7);
+        }
+        
+        .feature-card h4 {
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 30px;
+            font-weight: 900;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .feature-card p {
+            color: var(--gray);
+            font-size: 1.2rem;
+            line-height: 2;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Premium Testimonials Section */
+        .testimonials {
+            padding: 140px 0;
+            background-color: var(--light);
+            position: relative;
+        }
+        
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gradient);
+        }
+        
+        .testimonials-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 50px;
+        }
+        
+        .testimonial-card {
+            background-color: var(--lightgray);
+            border-radius: var(--border-radius);
+            padding: 50px 45px;
+            border: 2px solid rgba(166, 138, 223, 0.1);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-15px);
+            box-shadow: var(--shadow);
+            border-color: rgba(166, 138, 223, 0.3);
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .testimonial-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            color: var(--dark);
+            margin-left: 25px;
+            border: 3px solid var(--tertiary);
+        }
+        
+        .testimonial-info h4 {
+            font-size: 1.6rem;
+            color: var(--dark);
+            margin-bottom: 8px;
+            font-weight: 900;
+        }
+        
+        .testimonial-info p {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+        
+        .testimonial-text {
+            color: var(--darkgray);
+            font-size: 1.2rem;
+            line-height: 2.1;
+            font-style: italic;
+            margin-bottom: 25px;
+            position: relative;
+            padding-right: 30px;
+        }
+        
+        .testimonial-text::before {
+            content: '"';
+            position: absolute;
+            right: 0;
+            top: -15px;
+            font-size: 5rem;
+            color: var(--secondary);
+            opacity: 0.3;
+            font-family: 'Vazirmatn', sans-serif;
+        }
+        
+        .testimonial-rating {
+            color: var(--secondary);
+            font-size: 1.5rem;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 140px 0;
+            background-color: var(--light);
+            position: relative;
+        }
+        
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gradient);
+        }
+        
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 80px;
+        }
+        
+        .about-image {
+            flex: 1;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-xl);
+            transition: var(--transition);
+        }
+        
+        .about-image img:hover {
+            transform: scale(1.05);
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 2.8rem;
+            color: var(--dark);
+            margin-bottom: 30px;
+            font-weight: 900;
+            position: relative;
+            padding-bottom: 20px;
+        }
+        
+        .about-text h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 150px;
+            height: 6px;
+            background: var(--gradient);
+            border-radius: 6px;
+        }
+        
+        .about-text p {
+            color: var(--gray);
+            font-size: 1.3rem;
+            line-height: 2.2;
+            margin-bottom: 25px;
+        }
+        
+        /* Premium Contact Section */
+        .contact {
+            padding: 160px 0;
+            background-color: var(--light);
+            position: relative;
+        }
+        
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gradient);
+        }
+        
+        .contact-container {
+            display: flex;
+            gap: 80px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-form {
+            flex: 1;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 45px;
+            padding: 35px;
+            background-color: var(--lightgray);
+            border-radius: 25px;
+            border: 2px solid rgba(166, 138, 223, 0.1);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .contact-item:hover {
+            transform: translateX(-20px);
+            border-color: rgba(166, 138, 223, 0.4);
+            box-shadow: var(--shadow);
+        }
+        
+        .contact-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--lightgray);
+            border-radius: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            color: var(--secondary);
+            margin-left: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .contact-item:hover .contact-icon {
+            background: var(--gradient);
+            color: var(--dark);
+            transform: scale(1.2);
+        }
+        
+        .contact-details h4 {
+            font-size: 1.7rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            font-weight: 900;
+        }
+        
+        .contact-details p {
+            color: var(--gray);
+            line-height: 2.1;
+            font-size: 1.2rem;
+        }
+        
+        .contact-details a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: color 0.4s;
+            font-weight: 600;
+        }
+        
+        .contact-details a:hover {
+            color: var(--tertiary);
+            text-decoration: underline;
+        }
+        
+        .form-group {
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 20px;
+            font-weight: 800;
+            color: var(--darkgray);
+            font-size: 1.3rem;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 25px 30px;
+            border: 3px solid rgba(166, 138, 223, 0.2);
+            border-radius: 18px;
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 1.2rem;
+            transition: var(--transition);
+            background-color: var(--lightgray);
+            color: var(--dark);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 6px var(--textHighlight);
+            background-color: rgba(166, 138, 223, 0.08);
+        }
+        
+        /* Back to Top Button - MOVED TO RIGHT SIDE */
+        .back-to-top {
+            position: fixed;
+            bottom: 50px;
+            right: 50px;
+            width: 60px;
+            height: 60px;
+            background: var(--gradient);
+            color: var(--dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 998;
+            box-shadow: 0 10px 30px rgba(166, 138, 223, 0.5);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-10px) scale(1.1);
+            box-shadow: 0 15px 40px rgba(166, 138, 223, 0.7);
+        }
+        
+        /* Premium Footer */
+        footer {
+            background-color: var(--lightgray);
+            color: var(--dark);
+            padding: 140px 0 60px;
+            border-top: 2px solid rgba(166, 138, 223, 0.1);
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gradient);
+        }
+        
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 70px;
+            margin-bottom: 100px;
+        }
+        
+        .footer-col {
+            flex: 1;
+            min-width: 320px;
+        }
+        
+        .footer-col h4 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 25px;
+            color: var(--dark);
+            font-weight: 900;
+        }
+        
+        .footer-col h4::after {
+            content: "";
+            position: absolute;
+            width: 100px;
+            height: 6px;
+            background: var(--gradient);
+            bottom: 0;
+            right: 0;
+            border-radius: 6px;
+        }
+        
+        .footer-col p {
+            color: var(--gray);
+            line-height: 2.2;
+            margin-bottom: 35px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 25px;
+            transition: var(--transition);
+        }
+        
+        .footer-links li:hover {
+            transform: translateX(-20px);
+        }
+        
+        /* Simplified footer links - just text with hyperlink */
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1.2rem;
+            display: block;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 25px;
+            margin-top: 35px;
+        }
+        
+        .social-icon {
+            width: 65px;
+            height: 65px;
+            border-radius: 18px;
+            background-color: rgba(166, 138, 223, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1.8rem;
+        }
+        
+        .social-icon:hover {
+            background: var(--gradient);
+            color: var(--dark);
+            transform: translateY(-15px) rotate(15deg);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 60px;
+            border-top: 2px solid rgba(166, 138, 223, 0.1);
+            color: var(--gray);
+            font-size: 1.2rem;
+        }
+        
+        /* Floating WhatsApp Button */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 50px;
+            left: 50px;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.6);
+            z-index: 998;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        
+        .floating-whatsapp:hover {
+            transform: scale(1.2);
+            box-shadow: 0 20px 50px rgba(37, 211, 102, 0.8);
+        }
+        
+        /* WhatsApp Submission */
+        .whatsapp-note {
+            background: rgba(37, 211, 102, 0.1);
+            border-radius: 20px;
+            padding: 25px 30px;
+            margin-top: 30px;
+            border: 2px solid rgba(37, 211, 102, 0.2);
+            text-align: center;
+        }
+        
+        .whatsapp-note p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+        
+        .whatsapp-note a {
+            color: #25D366;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        
+        .whatsapp-note a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .modal-content {
+            background: var(--lightgray);
+            padding: 60px;
+            border-radius: var(--border-radius);
+            max-width: 800px;
+            width: 100%;
+            position: relative;
+            border: 3px solid rgba(166, 138, 223, 0.3);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            background: var(--gradient);
+            color: var(--dark);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .close-modal:hover {
+            transform: rotate(180deg);
+        }
+        
+        /* Animations */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes pulse-glow {
+            0% { opacity: 0.4; transform: scale(1); filter: blur(40px); }
+            100% { opacity: 0.7; transform: scale(1.08); filter: blur(50px); }
+        }
+        
+        @keyframes badge-pulse {
+            0% { box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6); }
+            50% { box-shadow: 0 20px 50px rgba(166, 138, 223, 0.7); }
+            100% { box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6); }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0); }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(80px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 1.2s ease forwards;
+            opacity: 0;
+        }
+        
+        /* Progress Bar */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 4px;
+            background: transparent;
+            z-index: 1001;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: var(--gradient);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        /* Newsletter Section */
+        .newsletter {
+            padding: 100px 0;
+            background: var(--light);
+            position: relative;
+        }
+        
+        .newsletter-container {
+            background: var(--lightgray);
+            border-radius: var(--border-radius);
+            padding: 80px;
+            text-align: center;
+            border: 3px solid rgba(166, 138, 223, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .newsletter-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-light);
+            z-index: 0;
+        }
+        
+        .newsletter-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            gap: 20px;
+            max-width: 600px;
+            margin: 50px auto 0;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 22px 30px;
+            border: 3px solid rgba(166, 138, 223, 0.2);
+            border-radius: 15px;
+            background: var(--light);
+            color: var(--dark);
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 1.2rem;
+        }
+        
+        .newsletter-input:focus {
+            outline: none;
+            border-color: var(--secondary);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1600px) {
+            .hero-text h2 {
+                font-size: 3.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 3.2rem;
+            }
+            
+            .teacher-avatar-container {
+                width: 400px;
+                height: 400px;
+            }
+            
+            .teacher-avatar-glow {
+                width: 460px;
+                height: 460px;
+            }
+            
+            .teacher-avatar-icon {
+                font-size: 160px;
+            }
+        }
+        
+        @media (max-width: 1400px) {
+            .hero-text h2 {
+                font-size: 3.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 3rem;
+            }
+            
+            .section-title h2::before, .section-title h2::after {
+                width: 120px;
+            }
+            
+            .section-title h2::before {
+                left: -150px;
+            }
+            
+            .section-title h2::after {
+                right: -150px;
+            }
+            
+            .teacher-avatar-container {
+                width: 380px;
+                height: 380px;
+            }
+            
+            .teacher-avatar-glow {
+                width: 440px;
+                height: 440px;
+            }
+            
+            .teacher-avatar-icon {
+                font-size: 150px;
+            }
+        }
+        
+        @media (max-width: 1200px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-text {
+                margin-bottom: 80px;
+            }
+            
+            .hero-text p::before {
+                display: none;
+            }
+            
+            .about-container {
+                flex-direction: column;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
+            
+            .features-container, .testimonials-container, .courses-container {
+                grid-template-columns: 1fr;
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            
+            .section-title h2::before, .section-title h2::after {
+                display: none;
+            }
+            
+            .floating-whatsapp, .back-to-top {
+                bottom: 30px;
+            }
+            
+            .floating-whatsapp {
+                left: 30px;
+            }
+            
+            .back-to-top {
+                right: 30px;
+                bottom: 120px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            nav ul {
+                display: none;
+            }
+            
+            .cta-button {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .hero-text h2 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.7rem;
+            }
+            
+            .teacher-avatar-container {
+                width: 350px;
+                height: 350px;
+            }
+            
+            .teacher-avatar-glow {
+                width: 410px;
+                height: 410px;
+            }
+            
+            .teacher-avatar-icon {
+                font-size: 130px;
+            }
+            
+            .floating-whatsapp, .back-to-top {
+                width: 70px;
+                height: 70px;
+                font-size: 1.9rem;
+            }
+            
+            .floating-whatsapp {
+                font-size: 1.7rem;
+                width: 65px;
+                height: 65px;
+            }
+            
+            .back-to-top {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+                bottom: 110px;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-text h2 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.4rem;
+            }
+            
+            .btn {
+                padding: 22px 45px;
+                font-size: 1.2rem;
+            }
+            
+            .teacher-avatar-container {
+                width: 320px;
+                height: 320px;
+            }
+            
+            .teacher-avatar-glow {
+                width: 380px;
+                height: 380px;
+            }
+            
+            .teacher-avatar-icon {
+                font-size: 120px;
+            }
+            
+            .footer-col {
+                min-width: 100%;
+            }
+            
+            .logo-icon {
+                width: 65px;
+                height: 65px;
+                font-size: 2rem;
+            }
+            
+            .logo-text h1 {
+                font-size: 2.2rem;
+            }
+            
+            .floating-whatsapp, .back-to-top {
+                width: 60px;
+                height: 60px;
+                font-size: 1.6rem;
+                bottom: 20px;
+            }
+            
+            .floating-whatsapp {
+                left: 20px;
+            }
+            
+            .back-to-top {
+                right: 20px;
+                bottom: 100px;
+                width: 55px;
+                height: 55px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-text h2 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.1rem;
+            }
+            
+            .teacher-avatar-container {
+                width: 280px;
+                height: 280px;
+            }
+            
+            .teacher-avatar-glow {
+                width: 340px;
+                height: 340px;
+            }
+            
+            .teacher-avatar-icon {
+                font-size: 100px;
+            }
+            
+            .teacher-badge {
+                padding: 15px 30px;
+                font-size: 1.2rem;
+                left: -10px;
+            }
+            
+            .floating-whatsapp, .back-to-top {
+                width: 55px;
+                height: 55px;
+                font-size: 1.5rem;
+                bottom: 15px;
+            }
+            
+            .floating-whatsapp {
+                left: 15px;
+                font-size: 1.4rem;
+            }
+            
+            .back-to-top {
+                right: 15px;
+                bottom: 85px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.4rem;
+            }
+            
+            .stat-item {
+                min-width: 100%;
+            }
+            
+            .loader {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .loading-text {
+                font-size: 1rem;
+            }
+        }
+        
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--lightgray);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient);
+            border-radius: 10px;
+            border: 2px solid var(--lightgray);
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--tertiary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Minimalist Preloader -->
+    <div id="preloader">
+        <div class="loader-container">
+            <div class="loader"></div>
+            <div class="loading-text">آکادمی زبان نصیری</div>
+        </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-language"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>آکادمی زبان نصیری</h1>
+                    <p>آموزش زبان انگلیسی و ترکی</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home" class="active">صفحه اصلی</a></li>
+                    <li><a href="#courses">دوره‌های آموزشی</a></li>
+                    <li><a href="#features">ویژگی‌ها</a></li>
+                    <li><a href="#testimonials">نظرات زبان‌آموزان</a></li>
+                    <li><a href="#about">درباره</a></li>
+                    <li><a href="#contact">تماس</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg-pattern"></div>
+        <div class="container hero-content">
+            <div class="hero-text fade-in-up">
+                <h2>آموزش زبان‌های <span>انگلیسی </span>، <span>ترکی  </span></h2>
+                <p>با بیش از ۵ سال تجربه تدریس زبان‌های انگلیسی و ترکی، به شما کمک می‌کنم تا به راحتی و با اعتماد به نفس به این زبان‌ها مسلط شوید. روش تدریس من بر اساس نیازهای زبانی شما طراحی خواهد شد.</p>
+                <div class="hero-buttons">
+                    <a href="#courses" class="btn btn-secondary">مشاهده دوره‌ها <i class="fas fa-graduation-cap"></i></a>
+                    <a href="https://wa.me/+989390247578?text=سلام%20آقای%20نصیری%20من%20علاقه‌مند%20به%20شرکت%20در%20دوره‌های%20شما%20هستم%20لطفا%20راهنمایی%20کنید." target="_blank" class="btn btn-whatsapp" style="margin-right: 30px;">مشاوره رایگان <i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="hero-image fade-in-up">
+                <div class="teacher-avatar-container">
+                    <div class="teacher-avatar-glow"></div>
+                    <div class="teacher-avatar">
+                        <i class="fas fa-chalkboard-teacher teacher-avatar-icon"></i>
+                        <div class="teacher-avatar-overlay"></div>
+                        <div class="avatar-decoration decoration-1"></div>
+                        <div class="avatar-decoration decoration-2"></div>
+                        <div class="avatar-decoration decoration-3"></div>
+                    </div>
+                    <div class="teacher-badge">تدریس تخصصی زبان‌های ترکی و انگلیسی</div>
+                </div>
+                <h3 style="margin-top: 35px; font-size: 2.1rem; color: var(--dark); font-weight: 900;"> مجتبی نصیری</h3>
+                <p style="color: var(--gray); font-size: 1.3rem; margin-top: 15px;">تدریس تخصصی زبان انگلیسی، ترکی </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Counter - Fixed with correct values -->
+    <div class="container">
+        <div class="stats-counter">
+            <div class="stat-item fade-in-up">
+                <span class="stat-number" data-count="+5">0</span>
+                <span class="stat-text">سال تجربه تدریس</span>
+            </div>
+            <div class="stat-item fade-in-up">
+                <span class="stat-number" data-count="+170">0</span>
+                <span class="stat-text">زبان‌آموز موفق</span>
+            </div>
+            <div class="stat-item fade-in-up">
+                <span class="stat-number" data-count="4">0</span>
+                <span class="stat-text">زبان تخصصی</span>
+            </div>
+            <div class="stat-item fade-in-up">
+                <span class="stat-number" data-count="95">0</span>
+                <span class="stat-text">درصد رضایت</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Courses Section -->
+<section class="courses" id="courses">
+    <div class="container">
+        <div class="section-title fade-in-up">
+            <h2>دوره‌های آموزشی</h2>
+            <p>دوره‌های تخصصی طراحی شده برای تمام سطوح و سنین، از مبتدی تا پیشرفته</p>
+        </div>
+        
+        <div class="courses-container">
+            <!-- English Course Card -->
+            <div class="course-card fade-in-up">
+                <div class="course-badge">محبوب ترین</div>
+                <div class="course-header">
+                    <div class="course-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3>آموزش زبان انگلیسی مطابق هدف شما </h3>
+                    <p>از سطح مبتدی تا پیشرفته</p>
+                </div>
+                <div class="course-content">
+                    <ul>
+                        <li>آموزش مکالمه روزمره انگلیسی</li>
+                        <li>گرامر کاربردی و آسان</li>
+                        <li>تلفظ صحیح و لهجه آمریکایی/بریتیش</li>
+                        <li>آمادگی برای آزمون‌های بین‌المللی</li>
+                        <li>مکالمه تجاری و بازرگانی</li>
+                        <li>مکالمه تلفنی و رسمی</li>
+                        <li>خواندن و درک متون تخصصی</li>
+                    </ul>
+                    <!-- UPDATED PRICE -->
+                    <div class="course-price">۱,۰۰۰,۰۰۰ تومان </div>
+                    <div style="text-align: center; color: var(--gray); font-size: 1.1rem; margin-bottom: 25px;">
+۸ جلسه ۶۰ دقیقه‌ای
+                    </div>
+                    <button class="btn enroll-btn" data-course="english" style="display: block; text-align: center; padding: 20px; font-size: 1.3rem; width: 100%;">ثبت نام در دوره <i class="fas fa-user-graduate"></i></button>
+                </div>
+            </div>
+            
+            <!-- Turkish Standard Course Card -->
+            <div class="course-card fade-in-up">
+                <div class="course-badge">محبوب</div>
+                <div class="course-header">
+                    <div class="course-icon">
+                        <i class="fas fa-globe-asia"></i>
+                    </div>
+                    <h3>آموزش زبان ترکی استانبولی </h3>
+                    <p>ترکی مدرن ترکیه</p>
+                </div>
+                <div class="course-content">
+                    <ul>
+                        <li>آموزش مکالمه روزمره ترکی استانبولی</li>
+                        <li>گرامر ساده و کاربردی</li>
+                        <li>تلفظ صحیح و لهجه استانبولی</li>
+                        <li>آمادگی برای سفر و مهاجرت</li>
+                        <li>مکالمه تجاری با ترکیه</li>
+                        <li>درک فیلم و موسیقی ترکی</li>
+                        <li>آمادگی برای آزمون TÖMER</li>
+                    </ul>
+                    <!-- UPDATED PRICE -->
+                    <div class="course-price">۱,۰۰۰,۰۰۰ تومان </div>
+                    <div style="text-align: center; color: var(--gray); font-size: 1.1rem; margin-bottom: 25px;">
+۸ جلسه ۶۰ دقیقه‌ای
+                    </div>
+                    <button class="btn enroll-btn" data-course="turkish_standard" style="display: block; text-align: center; padding: 20px; font-size: 1.3rem; width: 100%;">ثبت نام در دوره <i class="fas fa-user-graduate"></i></button>
+                </div>
+            </div>
+            
+            <!-- Azerbaijani Turkish Course Card -->
+            <div class="course-card azerbaijani fade-in-up">
+                <div class="course-badge">جدید</div>
+                <div class="course-header">
+                    <div class="course-icon">
+                        <i class="fas fa-flag"></i>
+                    </div>
+                    <h3>آموزش زبان ترکی آذری </h3>
+                    <p>زبان رسمی جمهوری آذربایجان</p>
+                </div>
+                <div class="course-content">
+                    <ul>
+                        <li>آموزش مکالمه ترکی آذری</li>
+                        <li>گرامر ساده و کاربردی</li>
+                        <li>تلفظ صحیح</li>
+                        <li>آمادگی برای سفر و تجارت</li>
+                        <li>مکالمه تجاری با آذربایجان</li>
+                        <li>درک رسانه‌های آذری</li>
+                        <li>آمادگی برای آزمون‌های رسمی</li>
+                    </ul>
+                    <!-- UPDATED PRICE -->
+                    <div class="course-price">۱,۲۰۰,۰۰۰ تومان </div>
+                    <div style="text-align: center; color: var(--gray); font-size: 1.1rem; margin-bottom: 25px;">
+۸ جلسه ۶۰ دقیقه‌ای
+                    </div>
+                    <button class="btn enroll-btn" data-course="turkish_azerbaijani" style="display: block; text-align: center; padding: 20px; font-size: 1.3rem; width: 100%;">ثبت نام در دوره <i class="fas fa-user-graduate"></i></button>
+                </div>
+            </div>
+            
+            <!-- Ottoman Turkish Course Card -->
+            <div class="course-card ottoman fade-in-up">
+                <div class="course-badge">تخصصی</div>
+                <div class="course-header">
+                    <div class="course-icon">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h3>آموزش زبان ترکی عثمانی </h3>
+                    <p>زبان تاریخی و ادبی</p>
+                </div>
+                <div class="course-content">
+                    <ul>
+                        <li>آموزش خط عثمانی و خواندن متون</li>
+                        <li>گرامر تاریخی ترکی عثمانی</li>
+                        <li>خواندن اسناد تاریخی</li>
+                        <li>درک ادبیات کلاسیک ترکی</li>
+                        <li>تحقیق در متون تاریخی</li>
+                        <li>مطالعه آثار ادبی عثمانی</li>
+                    </ul>
+                    <!-- UPDATED PRICE -->
+                    <div class="course-price">۱,۸۰۰,۰۰۰ تومان </div>
+                    <div style="text-align: center; color: var(--gray); font-size: 1.1rem; margin-bottom: 25px;">
+۸ جلسه ۶۰ دقیقه‌ای
+                    </div>
+                    <button class="btn enroll-btn" data-course="turkish_ottoman" style="display: block; text-align: center; padding: 20px; font-size: 1.3rem; width: 100%;">ثبت نام در دوره <i class="fas fa-user-graduate"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title fade-in-up">
+                <h2>چرا آکادمی زبان نصیری؟</h2>
+                <p>ویژگی‌های منحصر به فرد دوره‌های آموزشی ما</p>
+            </div>
+            
+            <div class="features-container">
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h4>تدریس خصوصی و نیمه خصوصی</h4>
+                    <p>کلاس‌ها به صورت خصوصی و نیمه خصوصی برگزار می‌شوند تا بیشترین بازدهی را داشته باشید و تمام تمرکز بر روی پیشرفت شما باشد.</p>
+                </div>
+                
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-laptop-house"></i>
+                    </div>
+                    <h4>کلاس‌های آنلاین </h4>
+                    <p>امکان شرکت در کلاس‌ها به صورت آنلاین از هر نقطه ایران </p>
+                </div>
+                
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h4>منابع آموزشی به روز</h4>
+                    <p>استفاده از جدیدترین و موثرترین منابع آموزشی بین‌المللی و بومی‌سازی شده برای یادگیری سریع و ماندگار.</p>
+                </div>
+                
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h4>اعطای مدرک معتبر</h4>
+                    <p>در پایان هر دوره، گواهینامه معتبر پایان دوره  به زبان‌آموزان اعطا می‌شود.</p>
+                </div>
+
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h4>پیگیری مداوم پیشرفت</h4>
+                    <p>سیستم پیگیری هوشمند پیشرفت تحصیلی با گزارش‌های ماهانه و جلسات مشاوره منظم برای اطمینان از یادگیری مؤثر.</p>
+                </div>
+                
+                <div class="feature-card fade-in-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h4>پشتیبانی ۲۴ ساعته</h4>
+                    <p>پشتیبانی کامل و پاسخگویی به سوالات شما در هر ساعت از روز از طریق واتساپ.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title fade-in-up">
+                <h2>نظرات زبان‌آموزان</h2>
+                <p>تجربه زبان‌آموزان ما از دوره‌های آموزشی</p>
+            </div>
+            
+            <div class="testimonials-container">
+                <div class="testimonial-card fade-in-up">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>محمد رضایی</h4>
+                            <p>زبان‌آموز  زبان انگلیسی </p>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">
+                        بعد از شرکت در چندین کلاس زبان، بالاخره با اقای نصیری به نتیجه دلخواهم رسیدم. روش تدریس ایشون واقعا ساده و مفیده و در مدت کوتاهی پیشرفت خوبی داشتم.
+                    </div>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card fade-in-up">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>فاطمه کریمی</h4>
+                            <p>زبان‌آموز  زبان ترکی استانبولی</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">
+                        برای سفر به ترکیه نیاز به یادگیری سریع زبان ترکی داشتم. آقای نصیری با صبر و حوصله، در مدت ۳ ماه من را آماده سفر کردند. واقعا متشکرم.
+                    </div>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card fade-in-up">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div class="testimonial-info">
+                            <h4> امیر حسینی</h4>
+                            <p>زبان‌آموز  زبان انگلیسی </p>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">
+                           تدریس حرفه‌ای ایشون در خوندن متون تخصصی حقوقی واقعا خیلی کمکم کرده
+                    </div>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title fade-in-up">
+                <h2>درباره مجتبی نصیری</h2>
+                <p>تجربه و تخصص من در آموزش زبان‌های انگلیسی و ترکی</p>
+            </div>
+            
+            <div class="about-container">
+                <div class="about-image fade-in-up">
+                    <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="کلاس آموزش زبان" style="filter: brightness(0.8) contrast(1.1) saturate(1.2);">
+                </div>
+                <div class="about-text fade-in-up">
+                    <h3>سوابق</h3>
+                    <p> با بیش از ۵ سال سابقه تدریس به ایرانیان در داخل و خارج از کشور  بر روی روش‌های نوین آموزش زبان کار کرده‌ام نه ادامه متد های سنتی .</p>
+                    <p>روش تدریس من بر پایه تقویت مکالمه و مهارت‌های ارتباطی استوار است. به باور من، یادگیری زبان باید لذت‌بخش، کاربردی و متناسب با نیازهای روزمره زبان‌آموز باشد.</p>
+                    <p>تاکنون بیش از ۱۷۰ زبان‌آموز را در مسیر یادگیری زبان انگلیسی و ترکی همراهی کرده‌ام و بسیاری از آنان اکنون در موقعیت‌های شغلی و تحصیلی خود بهره‌مند از این مهارت هستند.</p>
+                    
+                    <div style="display: flex; flex-wrap: wrap; gap: 30px; margin-top: 60px;">
+                        <div style="background: var(--lightgray); padding: 30px; border-radius: 20px; border: 2px solid rgba(166, 138, 223, 0.1); text-align: center; flex: 1; min-width: 180px;">
+                            <span class="stat-number" data-count="5">0</span>
+                            <span style="color: var(--gray); font-size: 1.2rem;">سال تجربه تدریس</span>
+                        </div>
+                        <div style="background: var(--lightgray); padding: 30px; border-radius: 20px; border: 2px solid rgba(166, 138, 223, 0.1); text-align: center; flex: 1; min-width: 180px;">
+                            <span class="stat-number" data-count="170">0</span>
+                            <span style="color: var(--gray); font-size: 1.2rem;">زبان‌آموز موفق</span>
+                        </div>
+                        <div style="background: var(--lightgray); padding: 30px; border-radius: 20px; border: 2px solid rgba(166, 138, 223, 0.1); text-align: center; flex: 1; min-width: 180px;">
+                            <span class="stat-number" data-count="4">0</span>
+                            <span style="color: var(--gray); font-size: 1.2rem;">زبان تخصصی</span>
+                        </div>
+                        <div style="background: var(--lightgray); padding: 30px; border-radius: 20px; border: 2px solid rgba(166, 138, 223, 0.1); text-align: center; flex: 1; min-width: 180px;">
+                            <span class="stat-number" data-count="95">0</span>
+                            <span style="color: var(--gray); font-size: 1.2rem;">رضایت زبان‌آموزان</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title fade-in-up">
+                <h2>تماس با من</h2>
+                <p>برای مشاوره رایگان و ثبت نام در دوره‌ها با من در ارتباط باشید</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info fade-in-up">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>واتساپ</h4>
+                            <p><a href="https://wa.me/+989390247578" target="_blank">۰۹۳۹۰۲۴۷۵۷۸</a></p>
+                            <p>برای مشاوره رایگان از طریق واتساپ در ارتباط باشید</p>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>ایمیل</h4>
+                            <p><a href="mailto:muctebanesiri@gmail.com">muctebanesiri@gmail.com</a></p>
+                            <p>پاسخگویی در کمتر از ۲۴ ساعت</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>آدرس</h4>
+                            <p>تبریز</p>
+                            <p>کلاس‌های حضوری نیز برگزار می‌شود</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>ساعات کاری</h4>
+                            <p>شنبه تا چهارشنبه: ۸ صبح تا ۸ شب</p>
+                            <p>پنجشنبه: ۸ صبح تا ۲ بعدازظهر</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>وبسایت رسمی</h4>
+                            <p><a href="https://mucteba.ir" target="_blank">mucteba.ir</a></p>
+                            <p>برای اطلاعات بیشتر به وبسایت من مراجعه کنید</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form fade-in-up">
+                    <h3 style="color: var(--dark); margin-bottom: 40px; font-size: 2.2rem; text-align: center;">ارسال درخواست مشاوره</h3>
+                    
+                    <form id="whatsappForm">
+                        <div class="form-group">
+                            <label for="name"><i class="fas fa-user"></i> نام و نام خانوادگی</label>
+                            <input type="text" id="name" class="form-control" required placeholder="نام کامل خود را وارد کنید">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone"><i class="fas fa-phone"></i> شماره تماس</label>
+                            <input type="tel" id="phone" class="form-control" required placeholder="شماره تماس خود را وارد کنید">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="course"><i class="fas fa-graduation-cap"></i> دوره مورد علاقه</label>
+                            <select id="course" class="form-control" required>
+                                <option value="" disabled selected>لطفا دوره مورد نظر را انتخاب کنید</option>
+                                <option value="english">آموزش زبان انگلیسی </option>
+                                <option value="turkish_standard">آموزش زبان ترکی استانبولی </option>
+                                <option value="turkish_azerbaijani">آموزش زبان ترکی آذری </option>
+                                <option value="turkish_ottoman">آموزش زبان ترکی عثمانی </option>
+                                <option value="consultation">مشاوره رایگان</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message"><i class="fas fa-comment"></i> پیام شما</label>
+                            <textarea id="message" class="form-control" rows="4" placeholder="پیام خود را اینجا بنویسید..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-whatsapp" style="width: 100%; padding: 25px; font-size: 1.4rem;">
+                            <i class="fab fa-whatsapp"></i> ارسال درخواست
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col fade-in-up">
+                    <h4>آکادمی زبان نصیری</h4>
+                    <p>آموزش تخصصی زبان‌های انگلیسی و ترکی با روش‌های نوین و کاربردی، متناسب با نیازهای زبان‌آموزان ایرانی. یادگیری با جدیدترین متدهای روز دنیا.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/muctebanesiri" target="_blank" class="social-icon" title="اینستاگرام"><i class="fab fa-instagram"></i></a>
+                        <a href="https://t.me/muctebanesiri" target="_blank" class="social-icon" title="تلگرام"><i class="fab fa-telegram"></i></a>
+                        <a href="https://wa.me/+989390247578" target="_blank" class="social-icon" title="واتساپ"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://youtube.com/@muctebanesiri" target="_blank" class="social-icon" title="یوتیوب"><i class="fab fa-youtube"></i></a>
+                        <a href="https://mucteba.ir" target="_blank" class="social-icon" title="وبسایت"><i class="fas fa-globe"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col fade-in-up">
+                    <h4>لینک‌های سریع</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">صفحه اصلی</a></li>
+                        <li><a href="#courses">دوره‌های آموزشی</a></li>
+                        <li><a href="#features">ویژگی‌ها</a></li>
+                        <li><a href="#testimonials">نظرات زبان‌آموزان</a></li>
+                        <li><a href="#about">درباره</a></li>
+                        <li><a href="#contact">تماس با ما</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col fade-in-up">
+                    <h4>دوره‌های آموزشی</h4>
+                    <ul class="footer-links">
+                        <li><a href="#courses">آموزش زبان انگلیسی </a></li>
+                        <li><a href="#courses">آموزش زبان ترکی استانبولی </a></li>
+                        <li><a href="#courses">آموزش زبان ترکی آذری </a></li>
+                        <li><a href="#courses">آموزش زبان ترکی عثمانی </a></li>
+                        <li><a href="#courses">آمادگی آزمون آیلتس و تافل</a></li>
+                        <li><a href="#courses">آمادگی آزمون TÖMER ترکی</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>تمامی حقوق این سایت متعلق به آکادمی زبان مجتبی نصیری می‌باشد. © </p>
+                <p>طراحی شده توسط mucteba.ir</p>
+                <p style="margin-top: 15px; font-size: 1.1rem;"> <a href="https://wa.me/+989390247578" target="_blank" style="color: var(--success); font-weight: 700;">واتساپ</a> |  <a href="https://mucteba.ir" target="_blank" style="color: var(--secondary); font-weight: 700;">وبسایت</a> | <a href="mailto:muctebanesiri@gmail.com" style="color: var(--secondary); font-weight: 700;">ایمیل</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/+989390247578" target="_blank" class="floating-whatsapp" title="پیام در واتساپ">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <!-- Back to Top Button - MOVED TO RIGHT SIDE -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <!-- Modal for Course Enrollment -->
+    <div class="modal" id="enrollmentModal">
+        <div class="modal-content">
+            <div class="close-modal" id="closeModal">
+                <i class="fas fa-times"></i>
+            </div>
+            <h2 style="color: var(--dark); margin-bottom: 30px; text-align: center;">ثبت نام در دوره</h2>
+            <form id="enrollmentForm">
+                <div class="form-group">
+                    <label for="modalName"><i class="fas fa-user"></i> نام و نام خانوادگی</label>
+                    <input type="text" id="modalName" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="modalPhone"><i class="fas fa-phone"></i> شماره تماس</label>
+                    <input type="tel" id="modalPhone" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="modalCourse"><i class="fas fa-graduation-cap"></i> دوره انتخابی</label>
+                    <input type="text" id="modalCourse" class="form-control" readonly>
+                </div>
+                
+                <div class="form-group">
+                    <label for="modalLevel"><i class="fas fa-chart-bar"></i> سطح زبان شما</label>
+                    <select id="modalLevel" class="form-control" required>
+                        <option value="" disabled selected>لطفا سطح خود را انتخاب کنید</option>
+                        <option value="beginner">مبتدی</option>
+                        <option value="intermediate">متوسط</option>
+                        <option value="advanced">پیشرفته</option>
+                        <option value="not_sure">مطمئن نیستم</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn" style="width: 100%; padding: 25px; font-size: 1.4rem; margin-top: 20px;">
+                    ثبت نام نهایی <i class="fas fa-user-check"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- SweetAlert2 Library -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+
+    <script>
+        // Minimalist Preloader
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            setTimeout(() => {
+                preloader.classList.add('hidden');
+            }, 800);
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav ul');
+        const navLinks = document.querySelectorAll('nav a');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            const isDisplayed = nav.style.display === 'flex';
+            nav.style.display = isDisplayed ? 'none' : 'flex';
+            
+            // Adjust for mobile
+            if (window.innerWidth <= 992) {
+                nav.style.flexDirection = 'column';
+                nav.style.position = 'fixed';
+                nav.style.top = '130px';
+                nav.style.right = '25px';
+                nav.style.width = 'calc(100% - 50px)';
+                nav.style.backgroundColor = 'var(--lightgray)';
+                nav.style.padding = '40px';
+                nav.style.boxShadow = 'var(--shadow-xl)';
+                nav.style.border = '3px solid rgba(166, 138, 223, 0.2)';
+                nav.style.borderRadius = 'var(--border-radius)';
+                nav.style.zIndex = '1001';
+                nav.style.gap = '35px';
+                nav.style.maxHeight = '80vh';
+                nav.style.overflowY = 'auto';
+                
+                // Change icon
+                const icon = this.querySelector('i');
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            }
+        });
+        
+        // Close mobile menu when clicking on a link
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 992) {
+                    nav.style.display = 'none';
+                    const icon = mobileMenuBtn.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+                
+                // Set active link
+                navLinks.forEach(item => item.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            const headerContainer = document.querySelector('.header-container');
+            const backToTop = document.getElementById('backToTop');
+            const progressBar = document.getElementById('progressBar');
+            
+            // Calculate scroll percentage
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            
+            // Update progress bar
+            progressBar.style.width = scrolled + "%";
+            
+            // Header effect
+            if (window.scrollY > 150) {
+                header.classList.add('scrolled');
+                headerContainer.style.padding = '20px 0';
+            } else {
+                header.classList.remove('scrolled');
+                headerContainer.style.padding = '25px 0';
+            }
+            
+            // Back to top button
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+            
+            // Update active nav link based on scroll position
+            const sections = document.querySelectorAll('section[id]');
+            const scrollPos = window.scrollY + 180;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+        
+        // Back to top functionality
+        document.getElementById('backToTop').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Enhanced Count-up animation for all statistics
+        function animateCounter(element) {
+            const target = parseInt(element.getAttribute('data-count'));
+            const suffix = element.getAttribute('data-count') === '100' ? '%' : '';
+            const duration = 2000; // 2 seconds
+            const step = Math.ceil(target / (duration / 20));
+            let current = 0;
+            
+            const timer = setInterval(() => {
+                current += step;
+                if (current >= target) {
+                    element.textContent = target + suffix;
+                    clearInterval(timer);
+                    element.classList.add('animated');
+                } else {
+                    element.textContent = current + suffix;
+                }
+            }, 20);
+        }
+        
+        // Function to start counting animations
+        function startCountUp() {
+            const counters = document.querySelectorAll('.stat-number:not(.animated)');
+            
+            counters.forEach(counter => {
+                animateCounter(counter);
+            });
+        }
+        
+        // Intersection Observer for count-up animation
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    startCountUp();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5, rootMargin: '0px 0px -100px 0px' });
+        
+        // Observe all stat items
+        const statItems = document.querySelectorAll('.stat-item');
+        if (statItems.length > 0) {
+            statItems.forEach(item => {
+                statsObserver.observe(item);
+            });
+        }
+        
+        // Also observe stats in about section
+        const aboutStats = document.querySelectorAll('.about-text .stat-number');
+        aboutStats.forEach(stat => {
+            statsObserver.observe(stat.closest('div'));
+        });
+        
+        // WhatsApp Form Submission
+        document.getElementById('whatsappForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const course = document.getElementById('course').value;
+            const message = document.getElementById('message').value;
+            
+            // Course text
+            const courseText = document.getElementById('course').options[document.getElementById('course').selectedIndex].text;
+            
+            // Create WhatsApp message
+            let whatsappMessage = `سلام آقای نصیری، من ${name} هستم.\n`;
+            whatsappMessage += `شماره تماس: ${phone}\n`;
+            whatsappMessage += `دوره مورد علاقه: ${courseText}\n`;
+            
+            if (message.trim()) {
+                whatsappMessage += `پیام من: ${message}`;
+            }
+            
+            // Encode message for URL
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            
+            // Open WhatsApp
+            const whatsappUrl = `https://wa.me/+989390247578?text=${encodedMessage}`;
+            window.open(whatsappUrl, '_blank');
+            
+            // Show success message
+            Swal.fire({
+                title: 'در حال انتقال به واتساپ...',
+                text: 'لطفا صبر کنید، به زودی به واتساپ منتقل می‌شوید.',
+                icon: 'info',
+                showConfirmButton: false,
+                timer: 2000
+            });
+        });
+        
+        // Course enrollment modal
+        const enrollmentModal = document.getElementById('enrollmentModal');
+        const closeModal = document.getElementById('closeModal');
+        const enrollButtons = document.querySelectorAll('.enroll-btn');
+        const modalCourseInput = document.getElementById('modalCourse');
+        
+        enrollButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const courseName = this.closest('.course-card').querySelector('h3').textContent;
+                modalCourseInput.value = courseName;
+                enrollmentModal.style.display = 'flex';
+            });
+        });
+        
+        closeModal.addEventListener('click', function() {
+            enrollmentModal.style.display = 'none';
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            if (event.target === enrollmentModal) {
+                enrollmentModal.style.display = 'none';
+            }
+        });
+        
+        // Enrollment form submission - Now redirects to WhatsApp
+        document.getElementById('enrollmentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('modalName').value;
+            const phone = document.getElementById('modalPhone').value;
+            const course = document.getElementById('modalCourse').value;
+            const level = document.getElementById('modalLevel').value;
+            
+            // Level text
+            const levelText = document.getElementById('modalLevel').options[document.getElementById('modalLevel').selectedIndex].text;
+            
+            // Create WhatsApp message for enrollment
+            let whatsappMessage = `سلام آقای نصیری، من ${name} هستم.\n`;
+            whatsappMessage += `شماره تماس: ${phone}\n`;
+            whatsappMessage += `علاقه‌مند به ثبت نام در دوره: ${course}\n`;
+            whatsappMessage += `سطح زبان من: ${levelText}\n`;
+            whatsappMessage += `لطفا برای ادامه فرآیند ثبت نام راهنمایی کنید.`;
+            
+            // Encode message for URL
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            
+            // Open WhatsApp
+            const whatsappUrl = `https://wa.me/+989390247578?text=${encodedMessage}`;
+            window.open(whatsappUrl, '_blank');
+            
+            // Close modal
+            enrollmentModal.style.display = 'none';
+            
+            // Show success message
+            Swal.fire({
+                title: 'در حال انتقال به واتساپ...',
+                text: 'لطفا صبر کنید، به زودی به واتساپ منتقل می‌شوید.',
+                icon: 'info',
+                showConfirmButton: false,
+                timer: 2000
+            }).then(() => {
+                this.reset();
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#') return;
+                
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    // Update active nav link
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 130,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Adjust mobile menu on window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 992) {
+                nav.style.display = 'flex';
+                nav.style.flexDirection = 'row';
+                nav.style.position = 'static';
+                nav.style.backgroundColor = 'transparent';
+                nav.style.padding = '0';
+                nav.style.boxShadow = 'none';
+                nav.style.border = 'none';
+                nav.style.borderRadius = '0';
+                nav.style.width = 'auto';
+                nav.style.gap = '50px';
+                nav.style.maxHeight = 'none';
+                nav.style.overflowY = 'visible';
+                
+                // Reset icon
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            } else {
+                nav.style.display = 'none';
+            }
+        });
+        
+        // Animation on scroll with Intersection Observer
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -120px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                    // Add animate.css animation for extra effect
+                    entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all elements with animation class
+        document.querySelectorAll('.fade-in-up').forEach((el) => {
+            observer.observe(el);
+        });
+        
+        // Initialize with header state
+        window.dispatchEvent(new Event('scroll'));
+        
+        // Initialize stats with 0 values
+        document.querySelectorAll('.stat-number').forEach(stat => {
+            const value = stat.getAttribute('data-count');
+            stat.textContent = '0' + (value === '100' ? '%' : '');
+        });
+    </script>
+</body>
+</html>
