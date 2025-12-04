@@ -1,9 +1,101 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
+    <!-- Enhanced SEO Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
-    <title>آکادمی زبان نصیری | آموزش زبان انگلیسی و ترکی</title>
+    <title>آکادمی زبان نصیری | آموزش زبان انگلیسی و ترکی | مجتبی نصیری</title>
+    <meta name="description" content="آکادمی زبان نصیری - آموزش تخصصی زبان انگلیسی و ترکی (استانبولی، آذری، عثمانی) با بیش از ۵ سال تجربه و ۱۷۰ زبان آموز موفق در تبریز. کلاس‌های خصوصی، نیمه خصوصی و آنلاین.">
+    <meta name="keywords" content="آموزش زبان, آموزش انگلیسی, آموزش ترکی, ترکی استانبولی, ترکی آذری, ترکی عثمانی, تدریس زبان تبریز, کلاس زبان تبریز, آیلتس, مکالمه انگلیسی, مکالمه ترکی">
+    <meta name="author" content="مجتبی نصیری">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mucteba.ir">
+    <meta property="og:title" content="آکادمی زبان نصیری | آموزش زبان انگلیسی و ترکی">
+    <meta property="og:description" content="آموزش تخصصی زبان انگلیسی و ترکی با روش‌های نوین و کاربردی توسط مجتبی نصیری">
+    <meta property="og:image" content="https://mucteba.ir/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://mucteba.ir">
+    <meta property="twitter:title" content="آکادمی زبان نصیری | آموزش زبان انگلیسی و ترکی">
+    <meta property="twitter:description" content="آموزش تخصصی زبان انگلیسی و ترکی با روش‌های نوین و کاربردی">
+    <meta property="twitter:image" content="https://mucteba.ir/twitter-image.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://mucteba.ir">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "آکادمی زبان نصیری",
+        "description": "آموزش تخصصی زبان انگلیسی و ترکی (استانبولی، آذری، عثمانی)",
+        "url": "https://mucteba.ir",
+        "logo": "https://mucteba.ir/logo.png",
+        "telephone": "+989390247578",
+        "email": "muctebanesiri@gmail.com",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "تبریز",
+            "addressRegion": "آذربایجان شرقی",
+            "addressCountry": "IR"
+        },
+        "founder": {
+            "@type": "Person",
+            "name": "مجتبی نصیری",
+            "jobTitle": "مدرس زبان انگلیسی و ترکی"
+        },
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "دوره‌های آموزشی زبان",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Course",
+                        "name": "آموزش زبان انگلیسی",
+                        "description": "آموزش مکالمه، گرامر و مهارت‌های زبان انگلیسی از مبتدی تا پیشرفته"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Course",
+                        "name": "آموزش زبان ترکی استانبولی",
+                        "description": "آموزش زبان ترکی مدرن ترکیه برای سفر، کار و زندگی"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Course",
+                        "name": "آموزش زبان ترکی آذری",
+                        "description": "آموزش زبان رسمی جمهوری آذربایجان"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Course",
+                        "name": "آموزش زبان ترکی عثمانی",
+                        "description": "آموزش زبان تاریخی و ادبی ترکی عثمانی"
+                    }
+                }
+            ]
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "170",
+            "bestRating": "5"
+        }
+    }
+    </script>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
@@ -20,6 +112,7 @@
             --tertiary: #846aff;
             --success: #25D366;
             --warning: #ff9800;
+            --error: #ff4444;
             --highlight: #8b7ec826;
             --textHighlight: #8b7ec826;
             --gradient: linear-gradient(135deg, #a68adf 0%, #846aff 100%);
@@ -321,6 +414,25 @@
             margin-top: 2px;
         }
         
+        /* Skip to main content link for accessibility */
+        .skip-to-main {
+            position: absolute;
+            top: -40px;
+            right: 10px;
+            background: var(--gradient);
+            color: var(--dark);
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            z-index: 1001;
+            font-weight: 600;
+            transition: top 0.3s;
+        }
+        
+        .skip-to-main:focus {
+            top: 10px;
+        }
+        
         nav ul {
             display: none;
             list-style: none;
@@ -566,6 +678,27 @@
         
         .btn:hover::before {
             transform: translateX(100%);
+        }
+        
+        .btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+        
+        .btn.loading {
+            pointer-events: none;
+        }
+        
+        .btn-spinner {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s linear infinite;
+            margin-right: 8px;
         }
         
         .btn-outline {
@@ -1278,6 +1411,21 @@
             border-color: var(--secondary);
             box-shadow: 0 0 0 3px var(--textHighlight);
             background-color: rgba(166, 138, 223, 0.08);
+        }
+        
+        .form-control.error {
+            border-color: var(--error);
+        }
+        
+        .error-message {
+            color: var(--error);
+            font-size: 0.85rem;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .error-message.show {
+            display: block;
         }
         
         /* Back to Top Button */
@@ -2208,6 +2356,9 @@
     </style>
 </head>
 <body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-to-main">پرش به محتوای اصلی</a>
+
     <!-- Minimalist Preloader -->
     <div id="preloader">
         <div class="loader-container">
@@ -2249,451 +2400,460 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-bg-pattern"></div>
-        <div class="container hero-content">
-            <div class="hero-text fade-in-up">
-                <h2>آموزش زبان‌های <span>انگلیسی</span>، <span>ترکی</span></h2>
-                <p>با بیش از ۵ سال تجربه تدریس زبان‌های انگلیسی و ترکی، به شما کمک می‌کنم تا به راحتی و با اعتماد به نفس به این زبان‌ها مسلط شوید. روش تدریس من بر اساس نیازهای زبانی شما طراحی خواهد شد.</p>
-                <div class="hero-buttons">
-                    <a href="#courses" class="btn btn-secondary">مشاهده دوره‌ها <i class="fas fa-graduation-cap"></i></a>
-                    <a href="https://wa.me/+989390247578?text=سلام%20آقای%20نصیری%20من%20علاقه‌مند%20به%20شرکت%20در%20دوره‌های%20شما%20هستم%20لطفا%20راهنمایی%20کنید." target="_blank" class="btn btn-whatsapp">مشاوره رایگان <i class="fab fa-whatsapp"></i></a>
-                </div>
-            </div>
-            <div class="hero-image fade-in-up">
-                <div class="teacher-avatar-container">
-                    <div class="teacher-avatar-glow"></div>
-                    <div class="teacher-avatar">
-                        <i class="fas fa-chalkboard-teacher teacher-avatar-icon"></i>
-                        <div class="teacher-avatar-overlay"></div>
-                        <div class="avatar-decoration decoration-1"></div>
-                        <div class="avatar-decoration decoration-2"></div>
-                        <div class="avatar-decoration decoration-3"></div>
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-bg-pattern"></div>
+            <div class="container hero-content">
+                <div class="hero-text fade-in-up">
+                    <h2>آموزش زبان‌های <span>انگلیسی</span>، <span>ترکی</span></h2>
+                    <p>با بیش از ۵ سال تجربه تدریس زبان‌های انگلیسی و ترکی، به شما کمک می‌کنم تا به راحتی و با اعتماد به نفس به این زبان‌ها مسلط شوید. روش تدریس من بر اساس نیازهای زبانی شما طراحی خواهد شد.</p>
+                    <div class="hero-buttons">
+                        <a href="#courses" class="btn btn-secondary">مشاهده دوره‌ها <i class="fas fa-graduation-cap"></i></a>
+                        <a href="https://wa.me/+989390247578?text=سلام%20آقای%20نصیری%20من%20علاقه‌مند%20به%20شرکت%20در%20دوره‌های%20شما%20هستم%20لطفا%20راهنمایی%20کنید." target="_blank" class="btn btn-whatsapp">مشاوره رایگان <i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
-                <h3 style="margin-top: 25px; font-size: 1.5rem; color: var(--dark); font-weight: 800;">مجتبی نصیری</h3>
-                <p style="color: var(--gray); font-size: 1rem; margin-top: 10px; text-align: center;">تدریس تخصصی زبان انگلیسی، ترکی</p>
+                <div class="hero-image fade-in-up">
+                    <div class="teacher-avatar-container">
+                        <div class="teacher-avatar-glow"></div>
+                        <div class="teacher-avatar">
+                            <i class="fas fa-chalkboard-teacher teacher-avatar-icon"></i>
+                            <div class="teacher-avatar-overlay"></div>
+                            <div class="avatar-decoration decoration-1"></div>
+                            <div class="avatar-decoration decoration-2"></div>
+                            <div class="avatar-decoration decoration-3"></div>
+                        </div>
+                    </div>
+                    <h3 style="margin-top: 25px; font-size: 1.5rem; color: var(--dark); font-weight: 800;">مجتبی نصیری</h3>
+                    <p style="color: var(--gray); font-size: 1rem; margin-top: 10px; text-align: center;">تدریس تخصصی زبان انگلیسی، ترکی</p>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Stats Counter -->
-    <div class="container">
-        <div class="stats-counter">
-            <div class="stat-item fade-in-up">
-                <span class="stat-number" data-count="+5">0</span>
-                <span class="stat-text">سال تجربه تدریس</span>
-            </div>
-            <div class="stat-item fade-in-up">
-                <span class="stat-number" data-count="+170">0</span>
-                <span class="stat-text">زبان‌آموز موفق</span>
-            </div>
-            <div class="stat-item fade-in-up">
-                <span class="stat-number" data-count="4">0</span>
-                <span class="stat-text">زبان تخصصی</span>
-            </div>
-            <div class="stat-item fade-in-up">
-                <span class="stat-number" data-count="95">0</span>
-                <span class="stat-text">درصد رضایت</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- Courses Section -->
-    <section class="courses" id="courses">
+        <!-- Stats Counter -->
         <div class="container">
-            <div class="section-title fade-in-up">
-                <h2>دوره‌های آموزشی</h2>
-                <p>دوره‌های تخصصی طراحی شده برای تمام سطوح و سنین، از مبتدی تا پیشرفته</p>
-            </div>
-            
-            <div class="courses-container">
-                <!-- English Course Card -->
-                <div class="course-card fade-in-up">
-                    <div class="course-badge">محبوب ترین</div>
-                    <div class="course-header">
-                        <div class="course-icon">
-                            <i class="fas fa-language"></i>
-                        </div>
-                        <h3>آموزش زبان انگلیسی</h3>
-                        <p>از سطح مبتدی تا پیشرفته</p>
-                    </div>
-                    <div class="course-content">
-                        <ul>
-                            <li>آموزش مکالمه روزمره انگلیسی</li>
-                            <li>گرامر کاربردی و آسان</li>
-                            <li>تلفظ صحیح و لهجه آمریکایی/بریتیش</li>
-                            <li>آمادگی برای آزمون‌های بین‌المللی</li>
-                            <li>مکالمه تجاری و بازرگانی</li>
-                            <li>مکالمه تلفنی و رسمی</li>
-                            <li>خواندن و درک متون تخصصی</li>
-                        </ul>
-                        <!-- UPDATED PRICE -->
-                        <div class="course-price">۱,۰۰۰,۰۰۰ تومان</div>
-                        <div style="text-align: center; color: var(--gray); font-size: 0.9rem; margin-bottom: 20px;">
-                        ۸ جلسه ۶۰ دقیقه‌ای
-                        </div>
-                        <button class="btn enroll-btn" data-course="english" style="display: block; text-align: center; padding: 15px; font-size: 1rem; width: 100%;">ثبت نام در دوره <i class="fas fa-user-graduate"></i></button>
-                    </div>
+            <div class="stats-counter">
+                <div class="stat-item fade-in-up">
+                    <span class="stat-number" data-count="+5">0</span>
+                    <span class="stat-text">سال تجربه تدریس</span>
                 </div>
-                
-                <!-- Turkish Standard Course Card -->
-                <div class="course-card fade-in-up">
-                    <div class="course-badge">محبوب</div>
-                    <div class="course-header">
-                        <div class="course-icon">
-                            <i class="fas fa-globe-asia"></i>
-                        </div>
-                        <h3>آموزش ترکی استانبولی</h3>
-                        <p>ترکی مدرن ترکیه</p>
-                    </div>
-                    <div class="course-content">
-                        <ul>
-                            <li>آموزش مکالمه روزمره ترکی استانبولی</li>
-                            <li>گرامر ساده و کاربردی</li>
-                            <li>تلفظ صحیح و لهجه استانبولی</li>
-                            <li>آمادگی برای سفر و مهاجرت</li>
-                            <li>مکالمه تجاری با ترکیه</li>
-                            <li>درک فیلم و موسیقی ترکی</li>
-                            <li>آمادگی برای آزمون TÖMER</li>
-                        </ul>
-                        <!-- UPDATED PRICE -->
-                        <div class="course-price">۱,۰۰۰,۰۰۰ تومان</div>
-                        <div style="text-align: center; color: var(--gray); font-size: 0.9rem; margin-bottom: 20px;">
-                        ۸ جلسه ۶۰ دقیقه‌ای
-                        </div>
-                        <button class="btn enroll-btn" data-course="turkish_standard" style="display: block; text-align: center; padding: 15px; font-size: 1rem; width: 100%;">ثبت نام در دوره <i class="fas fa-user-graduate"></i></button>
-                    </div>
+                <div class="stat-item fade-in-up">
+                    <span class="stat-number" data-count="+170">0</span>
+                    <span class="stat-text">زبان‌آموز موفق</span>
                 </div>
-                
-                <!-- Azerbaijani Turkish Course Card -->
-                <div class="course-card azerbaijani fade-in-up">
-                    <div class="course-badge">جدید</div>
-                    <div class="course-header">
-                        <div class="course-icon">
-                            <i class="fas fa-flag"></i>
-                        </div>
-                        <h3>آموزش زبان ترکی آذری</h3>
-                        <p>زبان رسمی جمهوری آذربایجان</p>
-                    </div>
-                    <div class="course-content">
-                        <ul>
-                            <li>آموزش مکالمه ترکی آذری</li>
-                            <li>گرامر ساده و کاربردی</li>
-                            <li>تلفظ صحیح</li>
-                            <li>آمادگی برای سفر و تجارت</li>
-                            <li>مکالمه تجاری با آذربایجان</li>
-                            <li>درک رسانه‌های آذری</li>
-                            <li>آمادگی برای آزمون‌های رسمی</li>
-                        </ul>
-                        <!-- UPDATED PRICE -->
-                        <div class="course-price">۱,۲۰۰,۰۰۰ تومان</div>
-                        <div style="text-align: center; color: var(--gray); font-size: 0.9rem; margin-bottom: 20px;">
-                        ۸ جلسه ۶۰ دقیقه‌ای
-                        </div>
-                        <button class="btn enroll-btn" data-course="turkish_azerbaijani" style="display: block; text-align: center; padding: 15px; font-size: 1rem; width: 100%;">ثبت نام در دوره <i class="fas fa-user-graduate"></i></button>
-                    </div>
+                <div class="stat-item fade-in-up">
+                    <span class="stat-number" data-count="4">0</span>
+                    <span class="stat-text">زبان تخصصی</span>
                 </div>
-                
-                <!-- Ottoman Turkish Course Card -->
-                <div class="course-card ottoman fade-in-up">
-                    <div class="course-badge">تخصصی</div>
-                    <div class="course-header">
-                        <div class="course-icon">
-                            <i class="fas fa-history"></i>
-                        </div>
-                        <h3>آموزش زبان ترکی عثمانی</h3>
-                        <p>زبان تاریخی و ادبی</p>
-                    </div>
-                    <div class="course-content">
-                        <ul>
-                            <li>آموزش خط عثمانی و خواندن متون</li>
-                            <li>گرامر تاریخی ترکی عثمانی</li>
-                            <li>خواندن اسناد تاریخی</li>
-                            <li>درک ادبیات کلاسیک ترکی</li>
-                            <li>تحقیق در متون تاریخی</li>
-                            <li>مطالعه آثار ادبی عثمانی</li>
-                        </ul>
-                        <!-- UPDATED PRICE -->
-                        <div class="course-price">۱,۸۰۰,۰۰۰ تومان</div>
-                        <div style="text-align: center; color: var(--gray); font-size: 0.9rem; margin-bottom: 20px;">
-                        ۸ جلسه ۶۰ دقیقه‌ای
-                        </div>
-                        <button class="btn enroll-btn" data-course="turkish_ottoman" style="display: block; text-align: center; padding: 15px; font-size: 1rem; width: 100%;">ثبت نام در دوره <i class="fas fa-user-graduate"></i></button>
-                    </div>
+                <div class="stat-item fade-in-up">
+                    <span class="stat-number" data-count="95">0</span>
+                    <span class="stat-text">درصد رضایت</span>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <div class="container">
-            <div class="section-title fade-in-up">
-                <h2>چرا آکادمی زبان نصیری؟</h2>
-                <p>ویژگی‌های منحصر به فرد دوره‌های آموزشی ما</p>
+        <!-- Courses Section -->
+        <section class="courses" id="courses">
+            <div class="container">
+                <div class="section-title fade-in-up">
+                    <h2>دوره‌های آموزشی</h2>
+                    <p>دوره‌های تخصصی طراحی شده برای تمام سطوح و سنین، از مبتدی تا پیشرفته</p>
+                </div>
+                
+                <div class="courses-container">
+                    <!-- English Course Card -->
+                    <div class="course-card fade-in-up">
+                        <div class="course-badge">محبوب ترین</div>
+                        <div class="course-header">
+                            <div class="course-icon">
+                                <i class="fas fa-language"></i>
+                            </div>
+                            <h3>آموزش زبان انگلیسی</h3>
+                            <p>از سطح مبتدی تا پیشرفته</p>
+                        </div>
+                        <div class="course-content">
+                            <ul>
+                                <li>آموزش مکالمه روزمره انگلیسی</li>
+                                <li>گرامر کاربردی و آسان</li>
+                                <li>تلفظ صحیح و لهجه آمریکایی/بریتیش</li>
+                                <li>آمادگی برای آزمون‌های بین‌المللی</li>
+                                <li>مکالمه تجاری و بازرگانی</li>
+                                <li>مکالمه تلفنی و رسمی</li>
+                                <li>خواندن و درک متون تخصصی</li>
+                            </ul>
+                            <!-- UPDATED PRICE -->
+                            <div class="course-price">۱,۰۰۰,۰۰۰ تومان</div>
+                            <div style="text-align: center; color: var(--gray); font-size: 0.9rem; margin-bottom: 20px;">
+                            ۸ جلسه ۶۰ دقیقه‌ای
+                            </div>
+                            <button class="btn enroll-btn" data-course="english" style="display: block; text-align: center; padding: 15px; font-size: 1rem; width: 100%;">ثبت نام در دوره <i class="fas fa-user-graduate"></i></button>
+                        </div>
+                    </div>
+                    
+                    <!-- Turkish Standard Course Card -->
+                    <div class="course-card fade-in-up">
+                        <div class="course-badge">محبوب</div>
+                        <div class="course-header">
+                            <div class="course-icon">
+                                <i class="fas fa-globe-asia"></i>
+                            </div>
+                            <h3>آموزش ترکی استانبولی</h3>
+                            <p>ترکی مدرن ترکیه</p>
+                        </div>
+                        <div class="course-content">
+                            <ul>
+                                <li>آموزش مکالمه روزمره ترکی استانبولی</li>
+                                <li>گرامر ساده و کاربردی</li>
+                                <li>تلفظ صحیح و لهجه استانبولی</li>
+                                <li>آمادگی برای سفر و مهاجرت</li>
+                                <li>مکالمه تجاری با ترکیه</li>
+                                <li>درک فیلم و موسیقی ترکی</li>
+                                <li>آمادگی برای آزمون TÖMER</li>
+                            </ul>
+                            <!-- UPDATED PRICE -->
+                            <div class="course-price">۱,۰۰۰,۰۰۰ تومان</div>
+                            <div style="text-align: center; color: var(--gray); font-size: 0.9rem; margin-bottom: 20px;">
+                            ۸ جلسه ۶۰ دقیقه‌ای
+                            </div>
+                            <button class="btn enroll-btn" data-course="turkish_standard" style="display: block; text-align: center; padding: 15px; font-size: 1rem; width: 100%;">ثبت نام در دوره <i class="fas fa-user-graduate"></i></button>
+                        </div>
+                    </div>
+                    
+                    <!-- Azerbaijani Turkish Course Card -->
+                    <div class="course-card azerbaijani fade-in-up">
+                        <div class="course-badge">جدید</div>
+                        <div class="course-header">
+                            <div class="course-icon">
+                                <i class="fas fa-flag"></i>
+                            </div>
+                            <h3>آموزش زبان ترکی آذری</h3>
+                            <p>زبان رسمی جمهوری آذربایجان</p>
+                        </div>
+                        <div class="course-content">
+                            <ul>
+                                <li>آموزش مکالمه ترکی آذری</li>
+                                <li>گرامر ساده و کاربردی</li>
+                                <li>تلفظ صحیح</li>
+                                <li>آمادگی برای سفر و تجارت</li>
+                                <li>مکالمه تجاری با آذربایجان</li>
+                                <li>درک رسانه‌های آذری</li>
+                                <li>آمادگی برای آزمون‌های رسمی</li>
+                            </ul>
+                            <!-- UPDATED PRICE -->
+                            <div class="course-price">۱,۲۰۰,۰۰۰ تومان</div>
+                            <div style="text-align: center; color: var(--gray); font-size: 0.9rem; margin-bottom: 20px;">
+                            ۸ جلسه ۶۰ دقیقه‌ای
+                            </div>
+                            <button class="btn enroll-btn" data-course="turkish_azerbaijani" style="display: block; text-align: center; padding: 15px; font-size: 1rem; width: 100%;">ثبت نام در دوره <i class="fas fa-user-graduate"></i></button>
+                        </div>
+                    </div>
+                    
+                    <!-- Ottoman Turkish Course Card -->
+                    <div class="course-card ottoman fade-in-up">
+                        <div class="course-badge">تخصصی</div>
+                        <div class="course-header">
+                            <div class="course-icon">
+                                <i class="fas fa-history"></i>
+                            </div>
+                            <h3>آموزش زبان ترکی عثمانی</h3>
+                            <p>زبان تاریخی و ادبی</p>
+                        </div>
+                        <div class="course-content">
+                            <ul>
+                                <li>آموزش خط عثمانی و خواندن متون</li>
+                                <li>گرامر تاریخی ترکی عثمانی</li>
+                                <li>خواندن اسناد تاریخی</li>
+                                <li>درک ادبیات کلاسیک ترکی</li>
+                                <li>تحقیق در متون تاریخی</li>
+                                <li>مطالعه آثار ادبی عثمانی</li>
+                            </ul>
+                            <!-- UPDATED PRICE -->
+                            <div class="course-price">۱,۸۰۰,۰۰۰ تومان</div>
+                            <div style="text-align: center; color: var(--gray); font-size: 0.9rem; margin-bottom: 20px;">
+                            ۸ جلسه ۶۰ دقیقه‌ای
+                            </div>
+                            <button class="btn enroll-btn" data-course="turkish_ottoman" style="display: block; text-align: center; padding: 15px; font-size: 1rem; width: 100%;">ثبت نام در دوره <i class="fas fa-user-graduate"></i></button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
-            <div class="features-container">
-                <div class="feature-card fade-in-up">
-                    <div class="feature-icon">
-                        <i class="fas fa-chalkboard-teacher"></i>
-                    </div>
-                    <h4>تدریس خصوصی و نیمه خصوصی</h4>
-                    <p>کلاس‌ها به صورت خصوصی و نیمه خصوصی برگزار می‌شوند تا بیشترین بازدهی را داشته باشید و تمام تمرکز بر روی پیشرفت شما باشد.</p>
-                </div>
-                
-                <div class="feature-card fade-in-up">
-                    <div class="feature-icon">
-                        <i class="fas fa-laptop-house"></i>
-                    </div>
-                    <h4>کلاس‌های آنلاین</h4>
-                    <p>امکان شرکت در کلاس‌ها به صورت آنلاین از هر نقطه ایران</p>
-                </div>
-                
-                <div class="feature-card fade-in-up">
-                    <div class="feature-icon">
-                        <i class="fas fa-book-open"></i>
-                    </div>
-                    <h4>منابع آموزشی به روز</h4>
-                    <p>استفاده از جدیدترین و موثرترین منابع آموزشی بین‌المللی و بومی‌سازی شده برای یادگیری سریع و ماندگار.</p>
-                </div>
-                
-                <div class="feature-card fade-in-up">
-                    <div class="feature-icon">
-                        <i class="fas fa-award"></i>
-                    </div>
-                    <h4>اعطای مدرک معتبر</h4>
-                    <p>در پایان هر دوره، گواهینامه معتبر پایان دوره به زبان‌آموزان اعطا می‌شود.</p>
-                </div>
+        </section>
 
-                <div class="feature-card fade-in-up">
-                    <div class="feature-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h4>پیگیری مداوم پیشرفت</h4>
-                    <p>سیستم پیگیری هوشمند پیشرفت تحصیلی با گزارش‌های ماهانه و جلسات مشاوره منظم برای اطمینان از یادگیری مؤثر.</p>
+        <!-- Features Section -->
+        <section class="features" id="features">
+            <div class="container">
+                <div class="section-title fade-in-up">
+                    <h2>چرا آکادمی زبان نصیری؟</h2>
+                    <p>ویژگی‌های منحصر به فرد دوره‌های آموزشی ما</p>
                 </div>
                 
-                <div class="feature-card fade-in-up">
-                    <div class="feature-icon">
-                        <i class="fas fa-headset"></i>
+                <div class="features-container">
+                    <div class="feature-card fade-in-up">
+                        <div class="feature-icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <h4>تدریس خصوصی و نیمه خصوصی</h4>
+                        <p>کلاس‌ها به صورت خصوصی و نیمه خصوصی برگزار می‌شوند تا بیشترین بازدهی را داشته باشید و تمام تمرکز بر روی پیشرفت شما باشد.</p>
                     </div>
-                    <h4>پشتیبانی ۲۴ ساعته</h4>
-                    <p>پشتیبانی کامل و پاسخگویی به سوالات شما در هر ساعت از روز از طریق واتساپ.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+                    
+                    <div class="feature-card fade-in-up">
+                        <div class="feature-icon">
+                            <i class="fas fa-laptop-house"></i>
+                        </div>
+                        <h4>کلاس‌های آنلاین</h4>
+                        <p>امکان شرکت در کلاس‌ها به صورت آنلاین از هر نقطه ایران</p>
+                    </div>
+                    
+                    <div class="feature-card fade-in-up">
+                        <div class="feature-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h4>منابع آموزشی به روز</h4>
+                        <p>استفاده از جدیدترین و موثرترین منابع آموزشی بین‌المللی و بومی‌سازی شده برای یادگیری سریع و ماندگار.</p>
+                    </div>
+                    
+                    <div class="feature-card fade-in-up">
+                        <div class="feature-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h4>اعطای مدرک معتبر</h4>
+                        <p>در پایان هر دوره، گواهینامه معتبر پایان دوره به زبان‌آموزان اعطا می‌شود.</p>
+                    </div>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials" id="testimonials">
-        <div class="container">
-            <div class="section-title fade-in-up">
-                <h2>نظرات زبان‌آموزان</h2>
-                <p>تجربه زبان‌آموزان ما از دوره‌های آموزشی</p>
-            </div>
-            
-            <div class="testimonials-container">
-                <div class="testimonial-card fade-in-up">
-                    <div class="testimonial-header">
-                        <div class="testimonial-avatar">
-                            <i class="fas fa-user-graduate"></i>
+                    <div class="feature-card fade-in-up">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
                         </div>
-                        <div class="testimonial-info">
-                            <h4>محمد رضایی</h4>
-                            <p>زبان‌آموز زبان انگلیسی</p>
+                        <h4>پیگیری مداوم پیشرفت</h4>
+                        <p>سیستم پیگیری هوشمند پیشرفت تحصیلی با گزارش‌های ماهانه و جلسات مشاوره منظم برای اطمینان از یادگیری مؤثر.</p>
+                    </div>
+                    
+                    <div class="feature-card fade-in-up">
+                        <div class="feature-icon">
+                            <i class="fas fa-headset"></i>
                         </div>
-                    </div>
-                    <div class="testimonial-text">
-                        بعد از شرکت در چندین کلاس زبان، بالاخره با اقای نصیری به نتیجه دلخواهم رسیدم. روش تدریس ایشون واقعا ساده و مفیده و در مدت کوتاهی پیشرفت خوبی داشتم.
-                    </div>
-                    <div class="testimonial-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card fade-in-up">
-                    <div class="testimonial-header">
-                        <div class="testimonial-avatar">
-                            <i class="fas fa-user-tie"></i>
-                        </div>
-                        <div class="testimonial-info">
-                            <h4>فاطمه کریمی</h4>
-                            <p>زبان‌آموز زبان ترکی استانبولی</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-text">
-                        برای سفر به ترکیه نیاز به یادگیری سریع زبان ترکی داشتم. آقای نصیری با صبر و حوصله، در مدت ۳ ماه من را آماده سفر کردند. واقعا متشکرم.
-                    </div>
-                    <div class="testimonial-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card fade-in-up">
-                    <div class="testimonial-header">
-                        <div class="testimonial-avatar">
-                            <i class="fas fa-user-graduate"></i>
-                        </div>
-                        <div class="testimonial-info">
-                            <h4>امیر حسینی</h4>
-                            <p>زبان‌آموز زبان انگلیسی</p>
-                        </div>
-                    </div>
-                    <div class="testimonial-text">
-                        تدریس حرفه‌ای ایشون در خوندن متون تخصصی حقوقی واقعا خیلی کمکم کرده
-                    </div>
-                    <div class="testimonial-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
+                        <h4>پشتیبانی ۲۴ ساعته</h4>
+                        <p>پشتیبانی کامل و پاسخگویی به سوالات شما در هر ساعت از روز از طریق واتساپ.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <div class="section-title fade-in-up">
-                <h2>درباره مجتبی نصیری</h2>
-                <p>تجربه و تخصص من در آموزش زبان‌های انگلیسی و ترکی</p>
-            </div>
-            
-            <div class="about-container">
-                <div class="about-image fade-in-up">
-                    <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="کلاس آموزش زبان" style="filter: brightness(0.8) contrast(1.1) saturate(1.2);">
-                </div>
-                <div class="about-text fade-in-up">
-                    <h3>سوابق</h3>
-                    <p>با بیش از ۵ سال سابقه تدریس به ایرانیان در داخل و خارج از کشور بر روی روش‌های نوین آموزش زبان کار کرده‌ام نه ادامه متد های سنتی.</p>
-                    <p>روش تدریس من بر پایه تقویت مکالمه و مهارت‌های ارتباطی استوار است. به باور من، یادگیری زبان باید لذت‌بخش، کاربردی و متناسب با نیازهای روزمره زبان‌آموز باشد.</p>
-                    <p>تاکنون بیش از ۱۷۰ زبان‌آموز را در مسیر یادگیری زبان انگلیسی و ترکی همراهی کرده‌ام و بسیاری از آنان اکنون در موقعیت‌های شغلی و تحصیلی خود بهره‌مند از این مهارت هستند.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="section-title fade-in-up">
-                <h2>تماس با من</h2>
-                <p>برای مشاوره رایگان و ثبت نام در دوره‌ها با من در ارتباط باشید</p>
-            </div>
-            
-            <div class="contact-container">
-                <div class="contact-info fade-in-up">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fab fa-whatsapp"></i>
+        <!-- Testimonials Section -->
+        <section class="testimonials" id="testimonials">
+            <div class="container">
+                <div class="section-title fade-in-up">
+                    <h2>نظرات زبان‌آموزان</h2>
+                    <p>تجربه زبان‌آموزان ما از دوره‌های آموزشی</p>
+                </div>
+                
+                <div class="testimonials-container">
+                    <div class="testimonial-card fade-in-up">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <div class="testimonial-info">
+                                <h4>محمد رضایی</h4>
+                                <p>زبان‌آموز زبان انگلیسی</p>
+                            </div>
                         </div>
-                        <div class="contact-details">
-                            <h4>واتساپ</h4>
-                            <p><a href="https://wa.me/+989390247578" target="_blank">۰۹۳۹۰۲۴۷۵۷۸</a></p>
-                            <p>برای مشاوره رایگان از طریق واتساپ در ارتباط باشید</p>
+                        <div class="testimonial-text">
+                            بعد از شرکت در چندین کلاس زبان، بالاخره با اقای نصیری به نتیجه دلخواهم رسیدم. روش تدریس ایشون واقعا ساده و مفیده و در مدت کوتاهی پیشرفت خوبی داشتم.
                         </div>
-                    </div>
-                    
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>ایمیل</h4>
-                            <p><a href="mailto:muctebanesiri@gmail.com">muctebanesiri@gmail.com</a></p>
-                            <p>پاسخگویی در کمتر از ۲۴ ساعت</p>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
                         </div>
                     </div>
                     
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
+                    <div class="testimonial-card fade-in-up">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <div class="testimonial-info">
+                                <h4>فاطمه کریمی</h4>
+                                <p>زبان‌آموز زبان ترکی استانبولی</p>
+                            </div>
                         </div>
-                        <div class="contact-details">
-                            <h4>آدرس</h4>
-                            <p>تبریز</p>
-                            <p>کلاس‌های حضوری نیز در تبریز برگزار می‌شود</p>
+                        <div class="testimonial-text">
+                            برای سفر به ترکیه نیاز به یادگیری سریع زبان ترکی داشتم. آقای نصیری با صبر و حوصله، در مدت ۳ ماه من را آماده سفر کردند. واقعا متشکرم.
+                        </div>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
                         </div>
                     </div>
                     
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-clock"></i>
+                    <div class="testimonial-card fade-in-up">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <div class="testimonial-info">
+                                <h4>امیر حسینی</h4>
+                                <p>زبان‌آموز زبان انگلیسی</p>
+                            </div>
                         </div>
-                        <div class="contact-details">
-                            <h4>ساعات کاری</h4>
-                            <p>شنبه تا چهارشنبه: ۸ صبح تا ۸ شب</p>
-                            <p>پنجشنبه: ۸ صبح تا ۲ بعدازظهر</p>
+                        <div class="testimonial-text">
+                            تدریس حرفه‌ای ایشون در خوندن متون تخصصی حقوقی واقعا خیلی کمکم کرده
                         </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-globe"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>وبسایت رسمی</h4>
-                            <p><a href="https://mucteba.ir" target="_blank">mucteba.ir</a></p>
-                            <p>برای اطلاعات بیشتر به وبسایت من مراجعه کنید</p>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+        
+        <!-- About Section -->
+        <section class="about" id="about">
+            <div class="container">
+                <div class="section-title fade-in-up">
+                    <h2>درباره مجتبی نصیری</h2>
+                    <p>تجربه و تخصص من در آموزش زبان‌های انگلیسی و ترکی</p>
+                </div>
                 
-                <div class="contact-form fade-in-up">
-                    <h3 style="color: var(--dark); margin-bottom: 25px; font-size: 1.4rem; text-align: center;">ارسال درخواست مشاوره</h3>
-                    
-                    <form id="whatsappForm">
-                        <div class="form-group">
-                            <label for="name"><i class="fas fa-user"></i> نام و نام خانوادگی</label>
-                            <input type="text" id="name" class="form-control" required placeholder="نام کامل خود را وارد کنید">
+                <div class="about-container">
+                    <div class="about-image fade-in-up">
+                        <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="کلاس آموزش زبان" width="800" height="600" style="filter: brightness(0.8) contrast(1.1) saturate(1.2);">
+                    </div>
+                    <div class="about-text fade-in-up">
+                        <h3>سوابق</h3>
+                        <p>با بیش از ۵ سال سابقه تدریس به ایرانیان در داخل و خارج از کشور بر روی روش‌های نوین آموزش زبان کار کرده‌ام نه ادامه متد های سنتی.</p>
+                        <p>روش تدریس من بر پایه تقویت مکالمه و مهارت‌های ارتباطی استوار است. به باور من، یادگیری زبان باید لذت‌بخش، کاربردی و متناسب با نیازهای روزمره زبان‌آموز باشد.</p>
+                        <p>تاکنون بیش از ۱۷۰ زبان‌آموز را در مسیر یادگیری زبان انگلیسی و ترکی همراهی کرده‌ام و بسیاری از آنان اکنون در موقعیت‌های شغلی و تحصیلی خود بهره‌مند از این مهارت هستند.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact" id="contact">
+            <div class="container">
+                <div class="section-title fade-in-up">
+                    <h2>تماس با من</h2>
+                    <p>برای مشاوره رایگان و ثبت نام در دوره‌ها با من در ارتباط باشید</p>
+                </div>
+                
+                <div class="contact-container">
+                    <div class="contact-info fade-in-up">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>واتساپ</h4>
+                                <p><a href="https://wa.me/+989390247578" target="_blank">۰۹۳۹۰۲۴۷۵۷۸</a></p>
+                                <p>برای مشاوره رایگان از طریق واتساپ در ارتباط باشید</p>
+                            </div>
                         </div>
                         
-                        <div class="form-group">
-                            <label for="phone"><i class="fas fa-phone"></i> شماره تماس</label>
-                            <input type="tel" id="phone" class="form-control" required placeholder="شماره تماس خود را وارد کنید">
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>ایمیل</h4>
+                                <p><a href="mailto:muctebanesiri@gmail.com">muctebanesiri@gmail.com</a></p>
+                                <p>پاسخگویی در کمتر از ۲۴ ساعت</p>
+                            </div>
                         </div>
                         
-                        <div class="form-group">
-                            <label for="course"><i class="fas fa-graduation-cap"></i> دوره مورد علاقه</label>
-                            <select id="course" class="form-control" required>
-                                <option value="" disabled selected>لطفا دوره مورد نظر را انتخاب کنید</option>
-                                <option value="english">آموزش زبان انگلیسی</option>
-                                <option value="turkish_standard">آموزش زبان ترکی استانبولی</option>
-                                <option value="turkish_azerbaijani">آموزش زبان ترکی آذری</option>
-                                <option value="turkish_ottoman">آموزش زبان ترکی عثمانی</option>
-                                <option value="consultation">مشاوره رایگان</option>
-                            </select>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>آدرس</h4>
+                                <p>تبریز</p>
+                                <p>کلاس‌های حضوری نیز در تبریز برگزار می‌شود</p>
+                            </div>
                         </div>
                         
-                        <div class="form-group">
-                            <label for="message"><i class="fas fa-comment"></i> پیام شما</label>
-                            <textarea id="message" class="form-control" rows="3" placeholder="پیام خود را اینجا بنویسید..."></textarea>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>ساعات کاری</h4>
+                                <p>شنبه تا چهارشنبه: ۸ صبح تا ۸ شب</p>
+                                <p>پنجشنبه: ۸ صبح تا ۲ بعدازظهر</p>
+                            </div>
                         </div>
                         
-                        <button type="submit" class="btn btn-whatsapp" style="width: 100%; padding: 18px; font-size: 1.1rem;">
-                            <i class="fab fa-whatsapp"></i> ارسال درخواست
-                        </button>
-                    </form>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>وبسایت رسمی</h4>
+                                <p><a href="https://mucteba.ir" target="_blank">mucteba.ir</a></p>
+                                <p>برای اطلاعات بیشتر به وبسایت من مراجعه کنید</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-form fade-in-up">
+                        <h3 style="color: var(--dark); margin-bottom: 25px; font-size: 1.4rem; text-align: center;">ارسال درخواست مشاوره</h3>
+                        
+                        <form id="whatsappForm">
+                            <div class="form-group">
+                                <label for="name"><i class="fas fa-user"></i> نام و نام خانوادگی</label>
+                                <input type="text" id="name" class="form-control" required placeholder="نام کامل خود را وارد کنید">
+                                <div class="error-message" id="nameError"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone"><i class="fas fa-phone"></i> شماره تماس</label>
+                                <input type="tel" id="phone" class="form-control" required placeholder="شماره تماس خود را وارد کنید">
+                                <div class="error-message" id="phoneError"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="course"><i class="fas fa-graduation-cap"></i> دوره مورد علاقه</label>
+                                <select id="course" class="form-control" required>
+                                    <option value="" disabled selected>لطفا دوره مورد نظر را انتخاب کنید</option>
+                                    <option value="english">آموزش زبان انگلیسی</option>
+                                    <option value="turkish_standard">آموزش زبان ترکی استانبولی</option>
+                                    <option value="turkish_azerbaijani">آموزش زبان ترکی آذری</option>
+                                    <option value="turkish_ottoman">آموزش زبان ترکی عثمانی</option>
+                                    <option value="consultation">مشاوره رایگان</option>
+                                </select>
+                                <div class="error-message" id="courseError"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message"><i class="fas fa-comment"></i> پیام شما</label>
+                                <textarea id="message" class="form-control" rows="3" placeholder="پیام خود را اینجا بنویسید..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-whatsapp" style="width: 100%; padding: 18px; font-size: 1.1rem;">
+                                <span class="btn-text">
+                                    <i class="fab fa-whatsapp"></i> ارسال درخواست
+                                </span>
+                                <span class="btn-spinner" style="display: none;"></span>
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer>
@@ -2765,11 +2925,13 @@
                 <div class="form-group">
                     <label for="modalName"><i class="fas fa-user"></i> نام و نام خانوادگی</label>
                     <input type="text" id="modalName" class="form-control" required>
+                    <div class="error-message" id="modalNameError"></div>
                 </div>
                 
                 <div class="form-group">
                     <label for="modalPhone"><i class="fas fa-phone"></i> شماره تماس</label>
                     <input type="tel" id="modalPhone" class="form-control" required>
+                    <div class="error-message" id="modalPhoneError"></div>
                 </div>
                 
                 <div class="form-group">
@@ -2786,10 +2948,12 @@
                         <option value="advanced">پیشرفته</option>
                         <option value="not_sure">مطمئن نیستم</option>
                     </select>
+                    <div class="error-message" id="modalLevelError"></div>
                 </div>
                 
                 <button type="submit" class="btn" style="width: 100%; padding: 18px; font-size: 1.1rem; margin-top: 20px;">
-                    ثبت نام نهایی <i class="fas fa-user-check"></i>
+                    <span class="btn-text">ثبت نام نهایی <i class="fas fa-user-check"></i></span>
+                    <span class="btn-spinner" style="display: none;"></span>
                 </button>
             </form>
         </div>
@@ -2944,21 +3108,123 @@
             });
         }
         
-        // Also observe stats in about section
-        const aboutStats = document.querySelectorAll('.about-stat');
-        aboutStats.forEach(stat => {
-            statsObserver.observe(stat);
-        });
+        // Form validation functions
+        function showError(element, message) {
+            element.classList.add('error');
+            const errorElement = document.getElementById(element.id + 'Error');
+            if (errorElement) {
+                errorElement.textContent = message;
+                errorElement.classList.add('show');
+            }
+        }
         
-        // WhatsApp Form Submission
+        function clearError(element) {
+            element.classList.remove('error');
+            const errorElement = document.getElementById(element.id + 'Error');
+            if (errorElement) {
+                errorElement.textContent = '';
+                errorElement.classList.remove('show');
+            }
+        }
+        
+        function validateName(name) {
+            if (!name.trim()) {
+                return 'لطفا نام خود را وارد کنید';
+            }
+            if (name.length < 2) {
+                return 'نام باید حداقل ۲ کاراکتر باشد';
+            }
+            return '';
+        }
+        
+        function validatePhone(phone) {
+            const phoneRegex = /^09[0-9]{9}$/;
+            const cleanedPhone = phone.replace(/\s/g, '');
+            if (!cleanedPhone) {
+                return 'لطفا شماره موبایل خود را وارد کنید';
+            }
+            if (!phoneRegex.test(cleanedPhone)) {
+                return 'شماره موبایل معتبر نیست (مثال: 09123456789)';
+            }
+            return '';
+        }
+        
+        function validateSelect(select, fieldName) {
+            if (!select.value) {
+                return `لطفا ${fieldName} را انتخاب کنید`;
+            }
+            return '';
+        }
+        
+        // Set button loading state
+        function setButtonLoading(button, isLoading) {
+            const btnText = button.querySelector('.btn-text');
+            const btnSpinner = button.querySelector('.btn-spinner');
+            
+            if (isLoading) {
+                button.disabled = true;
+                button.classList.add('loading');
+                btnText.style.display = 'none';
+                btnSpinner.style.display = 'inline-block';
+            } else {
+                button.disabled = false;
+                button.classList.remove('loading');
+                btnText.style.display = 'inline';
+                btnSpinner.style.display = 'none';
+            }
+        }
+        
+        // WhatsApp Form Submission with validation and loading state
         document.getElementById('whatsappForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
             // Get form values
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const course = document.getElementById('course').value;
-            const message = document.getElementById('message').value;
+            const nameInput = document.getElementById('name');
+            const phoneInput = document.getElementById('phone');
+            const courseInput = document.getElementById('course');
+            const messageInput = document.getElementById('message');
+            const submitBtn = this.querySelector('button[type="submit"]');
+            
+            const name = nameInput.value;
+            const phone = phoneInput.value;
+            const course = courseInput.value;
+            const message = messageInput.value;
+            
+            // Clear previous errors
+            clearError(nameInput);
+            clearError(phoneInput);
+            clearError(courseInput);
+            
+            // Validate form
+            let isValid = true;
+            
+            const nameError = validateName(name);
+            if (nameError) {
+                showError(nameInput, nameError);
+                isValid = false;
+            }
+            
+            const phoneError = validatePhone(phone);
+            if (phoneError) {
+                showError(phoneInput, phoneError);
+                isValid = false;
+            }
+            
+            const courseError = validateSelect(courseInput, 'دوره');
+            if (courseError) {
+                showError(courseInput, courseError);
+                isValid = false;
+            }
+            
+            if (!isValid) {
+                // Scroll to first error
+                const firstError = document.querySelector('.form-control.error');
+                if (firstError) {
+                    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    firstError.focus();
+                }
+                return;
+            }
             
             // Course text
             const courseText = document.getElementById('course').options[document.getElementById('course').selectedIndex].text;
@@ -2975,18 +3241,29 @@
             // Encode message for URL
             const encodedMessage = encodeURIComponent(whatsappMessage);
             
-            // Open WhatsApp
-            const whatsappUrl = `https://wa.me/+989390247578?text=${encodedMessage}`;
-            window.open(whatsappUrl, '_blank');
+            // Set button to loading state
+            setButtonLoading(submitBtn, true);
             
-            // Show success message
-            Swal.fire({
-                title: 'در حال انتقال به واتساپ...',
-                text: 'لطفا صبر کنید، به زودی به واتساپ منتقل می‌شوید.',
-                icon: 'info',
-                showConfirmButton: false,
-                timer: 1500
-            });
+            // Open WhatsApp after a short delay to show loading state
+            setTimeout(() => {
+                const whatsappUrl = `https://wa.me/+989390247578?text=${encodedMessage}`;
+                window.open(whatsappUrl, '_blank');
+                
+                // Show success message
+                Swal.fire({
+                    title: 'در حال انتقال به واتساپ...',
+                    text: 'لطفا صبر کنید، به زودی به واتساپ منتقل می‌شوید.',
+                    icon: 'info',
+                    showConfirmButton: false,
+                    timer: 1500
+                }).then(() => {
+                    // Reset button state
+                    setButtonLoading(submitBtn, false);
+                    
+                    // Reset form
+                    this.reset();
+                });
+            }, 1000);
         });
         
         // Course enrollment modal
@@ -3021,10 +3298,52 @@
         document.getElementById('enrollmentForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const name = document.getElementById('modalName').value;
-            const phone = document.getElementById('modalPhone').value;
-            const course = document.getElementById('modalCourse').value;
-            const level = document.getElementById('modalLevel').value;
+            const nameInput = document.getElementById('modalName');
+            const phoneInput = document.getElementById('modalPhone');
+            const courseInput = document.getElementById('modalCourse');
+            const levelInput = document.getElementById('modalLevel');
+            const submitBtn = this.querySelector('button[type="submit"]');
+            
+            const name = nameInput.value;
+            const phone = phoneInput.value;
+            const course = courseInput.value;
+            const level = levelInput.value;
+            
+            // Clear previous errors
+            clearError(nameInput);
+            clearError(phoneInput);
+            clearError(levelInput);
+            
+            // Validate form
+            let isValid = true;
+            
+            const nameError = validateName(name);
+            if (nameError) {
+                showError(nameInput, nameError);
+                isValid = false;
+            }
+            
+            const phoneError = validatePhone(phone);
+            if (phoneError) {
+                showError(phoneInput, phoneError);
+                isValid = false;
+            }
+            
+            const levelError = validateSelect(levelInput, 'سطح زبان');
+            if (levelError) {
+                showError(levelInput, levelError);
+                isValid = false;
+            }
+            
+            if (!isValid) {
+                // Scroll to first error
+                const firstError = document.querySelector('.form-control.error');
+                if (firstError) {
+                    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    firstError.focus();
+                }
+                return;
+            }
             
             // Level text
             const levelText = document.getElementById('modalLevel').options[document.getElementById('modalLevel').selectedIndex].text;
@@ -3039,24 +3358,33 @@
             // Encode message for URL
             const encodedMessage = encodeURIComponent(whatsappMessage);
             
-            // Open WhatsApp
-            const whatsappUrl = `https://wa.me/+989390247578?text=${encodedMessage}`;
-            window.open(whatsappUrl, '_blank');
+            // Set button to loading state
+            setButtonLoading(submitBtn, true);
             
-            // Close modal
-            enrollmentModal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-            
-            // Show success message
-            Swal.fire({
-                title: 'در حال انتقال به واتساپ...',
-                text: 'لطفا صبر کنید، به زودی به واتساپ منتقل می‌شوید.',
-                icon: 'info',
-                showConfirmButton: false,
-                timer: 1500
-            }).then(() => {
-                this.reset();
-            });
+            // Open WhatsApp after a short delay
+            setTimeout(() => {
+                const whatsappUrl = `https://wa.me/+989390247578?text=${encodedMessage}`;
+                window.open(whatsappUrl, '_blank');
+                
+                // Close modal
+                enrollmentModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                
+                // Show success message
+                Swal.fire({
+                    title: 'در حال انتقال به واتساپ...',
+                    text: 'لطفا صبر کنید، به زودی به واتساپ منتقل می‌شوید.',
+                    icon: 'info',
+                    showConfirmButton: false,
+                    timer: 1500
+                }).then(() => {
+                    // Reset button state
+                    setButtonLoading(submitBtn, false);
+                    
+                    // Reset form
+                    this.reset();
+                });
+            }, 1000);
         });
         
         // Smooth scrolling for anchor links
@@ -3160,12 +3488,75 @@
                     }, 300);
                 }
             });
+            
+            // Clear error on input
+            input.addEventListener('input', function() {
+                clearError(this);
+            });
         });
         
         // Load images lazily
         const images = document.querySelectorAll('img');
         images.forEach(img => {
             img.loading = 'lazy';
+        });
+        
+        // Initialize form validation on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add real-time validation for name field
+            const nameInput = document.getElementById('name');
+            if (nameInput) {
+                nameInput.addEventListener('blur', function() {
+                    const error = validateName(this.value);
+                    if (error) {
+                        showError(this, error);
+                    } else {
+                        clearError(this);
+                    }
+                });
+            }
+            
+            // Add real-time validation for phone field
+            const phoneInput = document.getElementById('phone');
+            if (phoneInput) {
+                phoneInput.addEventListener('blur', function() {
+                    const error = validatePhone(this.value);
+                    if (error) {
+                        showError(this, error);
+                    } else {
+                        clearError(this);
+                    }
+                });
+            }
+            
+            // Format phone number as user types
+            if (phoneInput) {
+                phoneInput.addEventListener('input', function(e) {
+                    let value = e.target.value.replace(/\D/g, '');
+                    if (value.length > 0) {
+                        value = value.replace(/^(\d{4})(\d{3})(\d{4})/, '$1 $2 $3');
+                    }
+                    e.target.value = value;
+                });
+            }
+        });
+        
+        // Track form submissions for analytics
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function() {
+                console.log('Form submitted:', this.id);
+                // Here you could send data to Google Analytics or your analytics platform
+                // Example: gtag('event', 'form_submission', { form_id: this.id });
+            });
+        });
+        
+        // Track course clicks
+        document.querySelectorAll('.enroll-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const course = this.getAttribute('data-course');
+                console.log('Course clicked:', course);
+                // Example: gtag('event', 'course_click', { course_name: course });
+            });
         });
     </script>
 </body>
