@@ -96,11 +96,15 @@
     }
     </script>
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <!-- SweetAlert2 for premium notifications -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <!-- Critical resources with preload and non-blocking loading -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" as="style">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap"></noscript>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" media="print" onload="this.media='all'">
+    
     <style>
         :root {
             --light: #100f0f;
@@ -155,57 +159,6 @@
         ::selection {
             background-color: var(--secondary);
             color: var(--dark);
-        }
-        
-        /* Minimalist Preloader */
-        #preloader {
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 100%;
-            height: 100%;
-            background-color: var(--light);
-            z-index: 9999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: opacity 0.5s, visibility 0.5s;
-            flex-direction: column;
-        }
-        
-        #preloader.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-        
-        /* Minimalist Loading Animation */
-        .loader-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-        }
-        
-        .loader {
-            width: 40px;
-            height: 40px;
-            border: 3px solid rgba(166, 138, 223, 0.2);
-            border-radius: 50%;
-            border-top-color: var(--secondary);
-            animation: spin 1s linear infinite;
-        }
-        
-        .loading-text {
-            color: var(--dark);
-            font-size: 1rem;
-            font-weight: 500;
-            margin-top: 10px;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
         }
         
         /* Enhanced Avatar Styles */
@@ -2357,14 +2310,6 @@
 </head>
 <body>
 
-    <!-- Minimalist Preloader -->
-    <div id="preloader">
-        <div class="loader-container">
-            <div class="loader"></div>
-            <div class="loading-text">آکادمی زبان نصیری</div>
-        </div>
-    </div>
-
     <!-- Progress Bar -->
     <div class="progress-container">
         <div class="progress-bar" id="progressBar"></div>
@@ -2480,8 +2425,7 @@
                                 <li>خواندن و درک متون تخصصی حقوقی</li>
                                 <li>رفع اشکال  انگلیسی متوسطه</li>
                             </ul>
-                            <!-- UPDATED PRICE -->
-                            <div class="course-price">۱,۲۰۰,۰۰۰ تومان</div>
+                            <div class="course-price">۲,۰۰۰,۰۰۰ تومان</div>
                             <div style="text-align: center; color: var(--gray); font-size: 0.9rem; margin-bottom: 20px;">
                             ۸ جلسه ۶۰ دقیقه‌ای
                             </div>
@@ -2509,8 +2453,7 @@
                                 <li>درک فیلم و موسیقی ترکی</li>
                                 <li>آمادگی برای آزمون TÖMER</li>
                             </ul>
-                            <!-- UPDATED PRICE -->
-                            <div class="course-price">۱,۲۰۰,۰۰۰ تومان</div>
+                            <div class="course-price">۲,۰۰۰,۰۰۰ تومان</div>
                             <div style="text-align: center; color: var(--gray); font-size: 0.9rem; margin-bottom: 20px;">
                             ۸ جلسه ۶۰ دقیقه‌ای
                             </div>
@@ -2538,8 +2481,7 @@
                                 <li>درک رسانه‌های آذری</li>
                                 <li>آمادگی برای آزمون‌های رسمی</li>
                             </ul>
-                            <!-- UPDATED PRICE -->
-                            <div class="course-price">۱,۵۰۰,۰۰۰ تومان</div>
+                            <div class="course-price">۲,۰۰۰,۰۰۰ تومان</div>
                             <div style="text-align: center; color: var(--gray); font-size: 0.9rem; margin-bottom: 20px;">
                             ۸ جلسه ۶۰ دقیقه‌ای
                             </div>
@@ -2566,8 +2508,7 @@
                                 <li>تحقیق در متون تاریخی</li>
                                 <li>مطالعه آثار ادبی عثمانی</li>
                             </ul>
-                            <!-- UPDATED PRICE -->
-                            <div class="course-price">۱,۸۰۰,۰۰۰ تومان</div>
+                            <div class="course-price">۲,۵۰۰,۰۰۰ تومان</div>
                             <div style="text-align: center; color: var(--gray); font-size: 0.9rem; margin-bottom: 20px;">
                             ۸ جلسه ۶۰ دقیقه‌ای
                             </div>
@@ -2638,84 +2579,6 @@
             </div>
         </section>
 
-        <!-- Testimonials Section 
-        <section class="testimonials" id="testimonials">
-            <div class="container">
-                <div class="section-title fade-in-up">
-                    <h2>نظرات زبان‌آموزان</h2>
-                    <p>تجربه زبان‌آموزان ما از دوره‌های آموزشی</p>
-                </div>
-                
-                <div class="testimonials-container">
-                    <div class="testimonial-card fade-in-up">
-                        <div class="testimonial-header">
-                            <div class="testimonial-avatar">
-                                <i class="fas fa-user-graduate"></i>
-                            </div>
-                            <div class="testimonial-info">
-                                <h4>محمد</h4>
-                                <p>زبان‌آموز زبان انگلیسی</p>
-                            </div>
-                        </div>
-                        <div class="testimonial-text">
-                            روش تدریس واقعا ساده و مفیده و در مدت کوتاهی پیشرفت خوبی داشتم.
-                        </div>
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-card fade-in-up">
-                        <div class="testimonial-header">
-                            <div class="testimonial-avatar">
-                                <i class="fas fa-user-tie"></i>
-                            </div>
-                            <div class="testimonial-info">
-                                <h4>فاطمه</h4>
-                                <p>زبان‌آموز زبان ترکی استانبولی</p>
-                            </div>
-                        </div>
-                        <div class="testimonial-text">
-                            برای سفر به ترکیه نیاز به یادگیری سریع زبان ترکی داشتم. آقای نصیری با صبر و حوصله، در مدت ۳ ماه من را آماده سفر کردند. واقعا متشکرم.
-                        </div>
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-card fade-in-up">
-                        <div class="testimonial-header">
-                            <div class="testimonial-avatar">
-                                <i class="fas fa-user-graduate"></i>
-                            </div>
-                            <div class="testimonial-info">
-                                <h4>امیر</h4>
-                                <p>زبان‌آموز زبان انگلیسی</p>
-                            </div>
-                        </div>
-                        <div class="testimonial-text">
-                            تدریس حرفه‌ای ایشون در خوندن متون تخصصی حقوقی واقعا خیلی کمکم کرده
-                        </div>
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        -->
         <!-- About Section -->
         <section class="about" id="about">
             <div class="container">
@@ -2726,7 +2589,7 @@
                 
                 <div class="about-container">
                     <div class="about-image fade-in-up">
-                        <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="کلاس آموزش زبان" width="800" height="600" style="filter: brightness(0.8) contrast(1.1) saturate(1.2);">
+                        <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="کلاس آموزش زبان" width="800" height="600" loading="lazy" style="filter: brightness(0.8) contrast(1.1) saturate(1.2);">
                     </div>
                     <div class="about-text fade-in-up">
                         <h3>سوابق</h3>
@@ -2957,18 +2820,10 @@
         </div>
     </div>
 
-    <!-- SweetAlert2 Library -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    <!-- SweetAlert2 async -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js" async></script>
 
     <script>
-        // Minimalist Preloader
-        window.addEventListener('load', function() {
-            const preloader = document.getElementById('preloader');
-            setTimeout(() => {
-                preloader.classList.add('hidden');
-            }, 600);
-        });
-        
         // Mobile menu toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const nav = document.querySelector('nav');
@@ -3062,7 +2917,7 @@
         // Enhanced Count-up animation for all statistics
         function animateCounter(element) {
             const target = parseInt(element.getAttribute('data-count'));
-            const suffix = element.getAttribute('data-count') === '100' ? '%' : '';
+            const suffix = element.getAttribute('data-count').includes('%') ? '%' : '+';
             const duration = 1500;
             const step = Math.ceil(target / (duration / 20));
             let current = 0;
@@ -3400,6 +3255,7 @@
                     navLinks.forEach(link => link.classList.remove('active'));
                     this.classList.add('active');
                     
+
                     // Close mobile menu if open
                     if (nav.classList.contains('mobile-open')) {
                         nav.classList.remove('mobile-open');
